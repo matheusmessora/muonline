@@ -56,23 +56,39 @@ body {
     padding-top: 30px;
     background: #FFF;
 }
-/* REGISTER */
+/* ACTIONS */
 
-.btn_register {
+.action {
     font: bold 15px/1.2'Lucida Sans Unicode', 'Segoe UI', 'Lucida Grande', Tahoma, Arial, sans-serif;
     width: 100%;
     height: 72px;
     display: block;
     color: #FFF;
     display: block;
-    background-image: linear-gradient(to top, #a0130d, #c31e14);
     box-shadow: 3px 3px 4px #c0c0c0;
     padding-top: 25px;
     text-align: center;
+    border-radius: 2px;
+    margin-bottom: 20px;
 }
-a.btn_register:hover {
+a.action:hover {
     text-decoration: none;
-    color: #8ebbea;
+    color: #FFF;
+}
+.register {
+    background-image: linear-gradient(to top, #a0130d, #c31e14);
+}
+.download {
+    background-image: linear-gradient(to top, #0d2fa0, #1486c3);
+}
+
+a.register:hover {
+    box-shadow: inset 0px 0px 10px 4px #a0130d;
+    background-image: linear-gradient(to top, #c31e14, #a0130d);
+}
+a.download:hover {
+    box-shadow: inset 0px 0px 10px 4px #0d2fa0;
+    background-image: linear-gradient(to top, #1486c3, #0d2fa0);
 }
 /* NEWS */
 
@@ -94,8 +110,15 @@ a.btn_register:hover {
     }
 }
 
-.news .notice-holder {
+.news .read-more {
+    text-align: right;
+}
+.news a:hover {
+    text-decoration: none;
+}
+.news .notice-separator {
     border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
 }
 .news .notice {
     padding-top: 25px;
