@@ -1,43 +1,102 @@
 body {
-    background: #222222;
+    background: url("http://belleviewchristian.com/wp-content/uploads/2014/03/blue-wallpaper-background-texture-checkbox-1024x640.jpg");
+    font: normal 13px/1.2'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;
 }
-
+.carousel-indicators-holder {
+    padding-left: 0;
+    background: #222;
+}
 .carousel-indicators {
     position: initial;
     bottom: 0px;
     left: 0%;
     z-index: 1;
-    width: 33%;
     margin: 0;
     padding-left: 0;
     list-style: none;
     text-align: left;
+    width: 100%;
 }
 .container .jumbotron {
     border-radius: 0px;
     padding: 0px;
+    margin-bottom: 0;
 }
 .ads .link {
+    width: 100%;
     height: 59px;
     display: block;
     margin-top: 7px;
     padding-top: 18px;
     padding-left: 15px;
-    border-bottom: 1px solid #FFF;
+    border-bottom: 1px solid #333;
+    color: #5b5b5b;
+    cursor: pointer;
+}
+.ads a.link:hover {
+    text-decoration: none;
+    color: #FFF;
+    cursor: pointer;
 }
 .ads .active {
     color: #FFF;
     background: none;
-    width:  100%;
+    border-bottom: 1px solid red;
 }
-
 @media (max-width: 1200px) {
     .ads .link {
-        height: 32px;
-        display: block;
-        margin-top: 10px;
-        padding-top: 10px;
-        padding-left: 5px;
-        border-bottom: 1px solid #FFF;
+        height: 47px;
+        margin-top: 8px;
+        padding-top: 12px;
     }
+}
+/* CONTENT */
+
+.content {
+    padding-top: 30px;
+    background: #FFF;
+}
+/* REGISTER */
+
+.btn_register {
+    font: bold 15px/1.2'Lucida Sans Unicode', 'Segoe UI', 'Lucida Grande', Tahoma, Arial, sans-serif;
+    width: 100%;
+    height: 72px;
+    display: block;
+    color: #FFF;
+    display: block;
+    background-image: linear-gradient(to top, #a0130d, #c31e14);
+    box-shadow: 3px 3px 4px #c0c0c0;
+    padding-top: 25px;
+    text-align: center;
+}
+a.btn_register:hover {
+    text-decoration: none;
+    color: #8ebbea;
+}
+/* NEWS */
+
+.news .btn_type {
+    font-size: 1em;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    background: #e4e4e4;
+    padding: 12px 0 0 15px;
+}
+.news .active {
+    background: #303a45;
+    color: #FFF;
+}
+@media (min-width: 1200px) {
+    .news .img-thumbnail {
+        height: 155px;
+    }
+}
+
+.news .notice-holder {
+    border-bottom: 1px solid #ddd;
+}
+.news .notice {
+    padding-top: 25px;
 }
