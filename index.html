@@ -10,12 +10,12 @@
     <!-- Bootstrap -->
     <link href="bootstrap.css" rel="stylesheet">
 
+    <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.11/jquery.mousewheel.min.js"></script>
     <script src="/jquery.loadTemplate-1.4.4.min.js"></script>
-
     <script src="/app/app.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -46,6 +46,8 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a>
                     </li>
+                    <li><a href="#">Shopping</a>
+                    </li>
                     <li><a href="#about">Guia de Jogo</a>
                     </li>
                     <li><a href="#contact">Comunidade</a>
@@ -57,33 +59,12 @@
                     <li><a href="#contact">Contato</a>
                     </li>
 
-                    <!--
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a>
-                            </li>
-                            <li><a href="#">Another action</a>
-                            </li>
-                            <li><a href="#">Something else here</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a>
-                            </li>
-                            <li><a href="#">One more separated link</a>
-                            </li>
-                        </ul>
-                    </li>
--->
                 </ul>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Login">
-                        <input type="text" class="form-control" placeholder="Senha">
-                    </div>
-                    <button type="submit" class="btn btn-default">Entrar</button>
-                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="glyphicon glyphicon-log-in"></i> Login</a>
+                    </li>
+
+                </ul>
             </div>
             <!--/.nav-collapse -->
         </div>
@@ -146,57 +127,152 @@
     </div>
 
     <!-- SITE CONTENT -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 content">
-                <div class="row">
+    <div class="container content">
 
-                    <!-- MAINBAR -->
-                    <div class="col-lg-8 col-md-8">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">BOX IMAGEM 1</div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">BOX IMAGEM 2</div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">BOX IMAGEM 3</div>
-                        </div>
-
-                        <div class="row news">
-
-                            <!-- NEWS CONTROLS -->
-                            <div class="visible-lg-block visible-md-block">
-                                <div class="col-lg-3 col-md-3 ">
-                                    <div class="btn_type active">All</div>
-                                </div>
-                                <div class="col-lg-3 col-md-3">
-                                    <div class="btn_type">Notícias</div>
-                                </div>
-                                <div class="col-lg-3 col-md-3">
-                                    <div class="btn_type">Eventos</div>
-                                </div>
-                                <div class="col-lg-3 col-md-3">
-                                    <div class="btn_type">Manutenção</div>
-                                </div>
-                            </div>
-
-                            <!-- NEWS SECTION -->
-                            <div id="template-container"></div>
-
-                        </div>
-                    </div>
-
-                    <!-- SIDEBAR -->
-                    <div class="col-lg-4  col-md-4 sidebar">
-                        <div class="col-lg-12">
-                            <a href="#/register" class="action register">CADASTRE-SE</a>
-                        </div>
-                        <div class="col-lg-12">
-                            <a href="#/register" class="action download">DOWNLOAD</a>
-                        </div>
-                    </div>
-
+        <!-- MAINBAR -->
+        <div class="col-lg-8 col-md-8">
+            <div class="row separator">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"><a href="#" class="btn btn-default btn-lg btn-block btn-info"><i class="hidden-xs glyphicon glyphicon-plus-sign"></i> Criar Conta</a>
                 </div>
+                <div class="col-lg-4 col-md-4 hidden-sm hidden-xs"><a href="#" class="btn btn-default btn-lg btn-block btn-info"><i class="glyphicon glyphicon-cloud-download"></i> Download</a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"><a href="#" class="btn btn-default btn-lg btn-block btn-info"><i class="hidden-xs glyphicon glyphicon-usd"></i> Comprar VIP</a>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- NEWS CONTROLS -->
+                <div class="visible-lg-block visible-md-block">
+                    <ul class="nav nav-tabs ">
+                        <li class="active"><a href="#home" data-toggle="tab">All</a>
+                        </li>
+                        <li><a href="#profile" data-toggle="tab">Notícias</a>
+                        </li>
+
+                        <li><a href="#profile" data-toggle="tab">Eventos</a>
+                        </li>
+
+                        <li><a href="#profile" data-toggle="tab">Manutenção</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- NEWS SECTION -->
+                <div id="template-container"></div>
 
             </div>
         </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4  col-md-4 sidebar">
+            <div class="row panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Servidor</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>Versão</th>
+                                <td>Season 6 Ep. 4</td>
+                            </tr>
+                            <tr>
+                                <th>Experiência</th>
+                                <td>3.000x</td>
+                            </tr>
+                            <tr>
+                                <th>Reset</th>
+                                <td>Acumulativo</td>
+                            </tr>
+
+                            <tr>
+                                <th>Drops</th>
+                                <td>50%</td>
+                            </tr>
+                            <tr>
+                                <th>Bug Bless</th>
+                                <td class="text-danger">Offline</td>
+                            </tr>
+                            <tr>
+                                <th>Reset</th>
+                                <td>Acumulativo</td>
+                            </tr>
+                            <tr class="table-separator">
+                                <th>Contas</th>
+                                <td>2036</td>
+                            </tr>
+
+                            <tr>
+                                <th>Personagens</th>
+                                <td>4021</td>
+                            </tr>
+
+
+                            <tr>
+                                <th>Contas Online <i class="glyphicon glyphicon-globe colored"></i>
+                                </th>
+                                <td class="text-info">102</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Ranking</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-tabs">
+                        <li class=""><a href="#">Resets</a>
+                        </li>
+                        <li class="active"><a href="#">Duelo</a>
+                        </li>
+                        <li><a href="#">Guilds</a>
+                        </li>
+                    </ul>
+                    <table class="table table-hover table-condensed text-center ranking">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Resets</th>
+                                <th>Classe</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-separator">
+                            <tr>
+                                <th>1</th>
+                                <td>NegoVerde</td>
+                                <td>10</td>
+                                <td>Blade Master</td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <td>Daze</td>
+                                <td>8</td>
+                                <td>Grand Master</td>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <td>Fenahot</td>
+                                <td>8</td>
+                                <td>ME</td>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <td>TeRRoR</td>
+                                <td>5</td>
+                                <td>High Elf</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 </body>

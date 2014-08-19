@@ -1,7 +1,31 @@
 body {
-    background: url("http://belleviewchristian.com/wp-content/uploads/2014/03/blue-wallpaper-background-texture-checkbox-1024x640.jpg");
+/*    background: url("http://belleviewchristian.com/wp-content/uploads/2014/03/blue-wallpaper-background-texture-checkbox-1024x640.jpg");*/
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGElEQVQIW2NkYGCQBOLnQAwGjDAG0QKSAD1rAR6LthyCAAAAAElFTkSuQmCC'), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAWSjEh8SSD7OUwAzAFJggTgHJAAAEkuAx5OdRJCAAAAAElFTkSuQmCC') #2b3036;
     font: normal 13px/1.2'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;
 }
+
+td {
+    vertical-align: middle;
+}
+th {
+    text-align: center;
+}
+
+.separator {
+    margin-bottom: 25px;
+}
+
+.btn-lg {
+    padding: 18px 20px;
+}
+.navbar {
+    font-size: 15px;
+}
+
+.colored {
+    color: #0ce3ac;
+}
+
 .carousel-indicators-holder {
     padding-left: 0;
     background: #222;
@@ -54,42 +78,9 @@ body {
 
 .content {
     padding-top: 30px;
-    background: #FFF;
-}
-/* ACTIONS */
-
-.action {
-    font: bold 15px/1.2'Lucida Sans Unicode', 'Segoe UI', 'Lucida Grande', Tahoma, Arial, sans-serif;
-    width: 100%;
-    height: 72px;
-    display: block;
-    color: #FFF;
-    display: block;
-    box-shadow: 3px 3px 4px #c0c0c0;
-    padding-top: 25px;
-    text-align: center;
-    border-radius: 2px;
-    margin-bottom: 20px;
-}
-a.action:hover {
-    text-decoration: none;
-    color: #FFF;
-}
-.register {
-    background-image: linear-gradient(to top, #a0130d, #c31e14);
-}
-.download {
-    background-image: linear-gradient(to top, #0d2fa0, #1486c3);
+    background: #222222;
 }
 
-a.register:hover {
-    box-shadow: inset 0px 0px 10px 4px #a0130d;
-    background-image: linear-gradient(to top, #c31e14, #a0130d);
-}
-a.download:hover {
-    box-shadow: inset 0px 0px 10px 4px #0d2fa0;
-    background-image: linear-gradient(to top, #1486c3, #0d2fa0);
-}
 /* NEWS */
 
 .news .btn_type {
@@ -104,6 +95,7 @@ a.download:hover {
     background: #303a45;
     color: #FFF;
 }
+
 @media (min-width: 1200px) {
     .news .img-thumbnail {
         height: 155px;
@@ -117,9 +109,23 @@ a.download:hover {
     text-decoration: none;
 }
 .news .notice-separator {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #1c1e22;
     padding-bottom: 20px;
 }
 .news .notice {
     padding-top: 25px;
+}
+
+
+/* TABLE-SEPARATOR */
+.table-separator {
+    border-top: 1px solid #464545;
+}
+
+/* RANKING */
+.ranking {
+    background: #222222;
+    border-bottom: 1px solid #464545;
+    border-left: 1px solid #464545;
+    border-right: 1px solid #464545;
 }

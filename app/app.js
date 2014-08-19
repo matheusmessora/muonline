@@ -1,5 +1,8 @@
 $(function () {
 
+
+
+
     // GetNEws
     $.getJSON("/app/js/news.js", {})
         .done(function (json) {
