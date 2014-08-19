@@ -1,31 +1,26 @@
 body {
-/*    background: url("http://belleviewchristian.com/wp-content/uploads/2014/03/blue-wallpaper-background-texture-checkbox-1024x640.jpg");*/
+    /*    background: url("http://belleviewchristian.com/wp-content/uploads/2014/03/blue-wallpaper-background-texture-checkbox-1024x640.jpg");*/
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGElEQVQIW2NkYGCQBOLnQAwGjDAG0QKSAD1rAR6LthyCAAAAAElFTkSuQmCC'), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAWSjEh8SSD7OUwAzAFJggTgHJAAAEkuAx5OdRJCAAAAAElFTkSuQmCC') #2b3036;
     font: normal 13px/1.2'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;
 }
-
 td {
     vertical-align: middle;
 }
 th {
     text-align: center;
 }
-
 .separator {
     margin-bottom: 25px;
 }
-
 .btn-lg {
     padding: 18px 20px;
 }
 .navbar {
     font-size: 15px;
 }
-
 .colored {
     color: #0ce3ac;
 }
-
 .carousel-indicators-holder {
     padding-left: 0;
     background: #222;
@@ -80,7 +75,6 @@ th {
     padding-top: 30px;
     background: #222222;
 }
-
 /* NEWS */
 
 .news .btn_type {
@@ -95,13 +89,11 @@ th {
     background: #303a45;
     color: #FFF;
 }
-
 @media (min-width: 1200px) {
     .news .img-thumbnail {
         height: 155px;
     }
 }
-
 .news .read-more {
     text-align: right;
 }
@@ -115,17 +107,26 @@ th {
 .news .notice {
     padding-top: 25px;
 }
-
-
 /* TABLE-SEPARATOR */
+
 .table-separator {
     border-top: 1px solid #464545;
 }
-
 /* RANKING */
+
 .ranking {
     background: #222222;
     border-bottom: 1px solid #464545;
     border-left: 1px solid #464545;
     border-right: 1px solid #464545;
+}
+/* JUMBOCRUN */
+
+.container .jumbcrun {
+    height: 100px;
+    background: #000;
+    padding-top: 30px;
+}
+.jumbcrun .text-bottom {
+    padding-top: 40px;
 }
