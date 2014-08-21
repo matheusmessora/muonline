@@ -130,3 +130,8 @@ th {
 .jumbcrun .text-bottom {
     padding-top: 40px;
 }
+/* IMAGE THUMBNAIL */
+
+img.active {
+    border: 1px solid #375a7f;
+}
