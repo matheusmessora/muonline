@@ -23,11 +23,13 @@ th {
 .navbar {
     font-size: 15px;
 }
+
 .navbar-default .navbar-nav>li>a.btn-danger:hover,
 .navbar-default .navbar-nav>li>a.btn-danger:focus {
     color: #FFF;
     background-color: #e74c3c;
 }
+
 .colored {
     color: #0ce3ac;
 }
@@ -130,6 +132,7 @@ th {
     border-left: 1px solid #464545;
     border-right: 1px solid #464545;
 }
+
 /* FOOTER */
 
 .footer {
@@ -141,4 +144,23 @@ th {
 }
 .copyright {
     margin-top: 20px;
+}
+
+/* JUMBOCRUN */
+
+.container .jumbcrun {
+    height: 100px;
+    background: #000;
+    padding-top: 30px;
+}
+.jumbcrun .text-bottom {
+    padding-top: 40px;
+}
+/* IMAGE THUMBNAIL */
+
+img.active {
+    border: 1px solid #375a7f;
+}
+.thumbnail-dark {
+    background: #000;
 }
