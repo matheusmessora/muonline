@@ -1,0 +1,219 @@
+body {
+    background: #000;
+    color: #a99877;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    color: #F3E6D0;
+}
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    border: none;
+}
+.table-hover>tbody>tr:hover>td,
+.table-hover>tbody>tr:hover>th {
+    background: #070706;
+    color: #F3E6D0;
+}
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background: #12110f;
+}
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+    background: #171614;
+}
+.table-striped>thead {
+    background: #300a00;
+    color: #F3E6D0;
+}
+a {
+    color: #ad835a;
+}
+a:hover,
+a:focus {
+    color: #F3E6D0;
+}
+/*
+====================================
+
+            BOTSTRAP
+
+====================================  */
+
+/*
+====================================
+TOP MENU
+====================================  */
+
+.navbar-default .navbar-brand {
+    color: #a99877;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    text-shadow: 0px 0px 10px #F3E6D0;
+    color: #F3E6D0;
+}
+.navbar-default .navbar-toggle {
+    text-shadow: 0px 0px 20px #000;
+    border-color: #2E2925;
+    background: #191814;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    text-shadow: 0px 0px 10px #F3E6D0;
+    border-color: #2E2925;
+    background: #000;
+    color: #F3E6D0;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #2E2925;
+}
+.navbar-default {
+    background: #191814;
+    border-color: transparent;
+    border-top: 2px solid #000;
+    -webkit-box-shadow: inset 0 -2px #4c0b05;
+  box-shadow: inset 0 -2px #4c0b05;
+/*    border-bottom: 1px solid #4c0b05;*/
+}
+.navbar-default .navbar-nav>li>a {
+    color: #a99877;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 0;
+    border-top: 0;
+}
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: #F3E6D0;
+/*    background: #000;*/
+    border-bottom: 2px solid #e60101;
+    text-shadow: 0px 0px 10px #F3E6D0;
+    border-top: 0;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #F3E6D0;
+    background: #000;
+    border: 0;
+    border-bottom: 2px solid #e60101;
+    text-shadow: 0px 0px 10px #F3E6D0;
+    border-top: 0;
+}
+@media (max-width: 992px) {
+    .navbar-default .navbar-nav>li>a:focus,
+    .navbar-default .navbar-nav>li>a:hover,
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+        border-bottom: 0;
+        border-top: 0;
+    }
+}
+/*
+====================================
+NAV TABS
+====================================  */
+
+.nav-tabs {
+    border-bottom-color: #2E2925;
+}
+.nav>li>a {
+    background: #191814;
+    border-bottom: 1px solid #2E2925;
+}
+.nav>li>a:hover,
+.nav>li>a:focus,
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+    background: #191814;
+    border: 1px solid #2E2925;
+    border-bottom-color: #191814;
+    color: #F3E6D0;
+}
+.img-thumbnail {
+    background-color: #300E0D;
+    border: 1px solid #300E0D;
+    padding: 0px;
+}
+.panel {
+    background: none;
+    border-color: transparent;
+}
+.panel-heading {
+    color: #F3E6D0;
+    border-bottom: 1px solid #2E2925;
+}
+
+/*
+====================================
+BTN
+====================================  */
+.navbar .btn {
+    border-radius: 0px;
+
+}
+.navbar-default .navbar-nav>li>a.btn-danger:hover, .navbar-default .navbar-nav>li>a.btn-danger:focus {
+    background-color: #e60101;
+    border-bottom-color: #e60101;
+}
+
+
+
+
+/*
+====================================
+MISc
+====================================  */
+.text-danger {
+    color: #e60101;
+}
+
+
+/*
+====================================
+
+           MY THEME
+
+====================================  */
+
+.content {
+    background: #191814;
+}
+.notice-separator {
+    border-bottom: 1px solid #2E2925;
+}
+.sidebar {
+    border-left: 1px solid #2a241c;
+    background: #0e0d0c;
+}
+.ranking {
+    background: #191814;
+    border: 1px solid #2E2925;
+    border-top: none;
+}
+.ranking-tabs {
+    border-bottom: 1px solid #300a00;
+}
+.ranking-tabs>li>a:hover,
+.ranking-tabs>li>a:focus,
+.ranking-tabs>li.active>a,
+.ranking-tabs>li.active>a:hover,
+.ranking-tabs>li.active>a:focus {
+    background: #300a00;
+    font-weight: bold;
+    border-bottom: 1px solid #300a00;
+}
