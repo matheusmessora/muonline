@@ -8,11 +8,16 @@ body {
     font: normal 13px/1.2'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;
     margin-bottom: 100px;
 }
-td {
-    vertical-align: middle;
-}
-th {
+th,
+td,
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
     text-align: center;
+    vertical-align: middle;
 }
 .separator {
     margin-bottom: 25px;
@@ -27,6 +32,9 @@ th {
 .navbar-default .navbar-nav>li>a.btn-danger:focus {
     color: #FFF;
     background-color: #e74c3c;
+}
+.form-horizontal {
+    margin-right: 20px;
 }
 .colored {
     color: #0ce3ac;
@@ -87,6 +95,7 @@ th {
     padding-bottom: 20px;
 }
 /* SIDEBAR */
+
 @media (max-width: 992px) {
     .sidebar {
         margin-top: 100px;
@@ -135,13 +144,13 @@ th {
     margin-top: 20px;
 }
 /* JUMBOCRUN */
-
-.container .jumbcrun {
+.container .skybar {
     height: 100px;
-    background: #000;
+
     padding-top: 30px;
 }
-.jumbcrun .text-bottom {
+
+.skybar .text-bottom {
     padding-top: 40px;
 }
 /* IMAGE THUMBNAIL */
