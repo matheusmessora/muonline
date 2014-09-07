@@ -1,5 +1,11 @@
 $(function () {
 
+    // initialize PANDOX SYSTEM
+    PANDOX.SYSTEM.init();
+    PANDOX.FORM.init();
+    PANDOX.UTIL.init();
+    PANDOX.LOGIN.init();
+
 
     // GetNews
     $.getJSON("/app/js/news.js", {})
@@ -46,29 +52,29 @@ $(function () {
         clearInput("passconfirm");
 
         var loginInput = $("#i-login").val();
-        if (isBlank(loginInput)) {
+        if (PANDOX.UTIL.isBlank(loginInput)) {
             hasError = true;
-            markErrorOnField("login");
+            PANDOX.FORM.markErrorOnField("login");
         } else if (loginExist(loginInput)) {
             console.log("exists", loginInput);
             hasError = true;
-            markErrorOnField("login");
+            PANDOX.FORM.markErrorOnField("login");
         }
 
 
         var passwordValue = $("#i-password").val();
         var passConfirm = $("#i-passwordconfirm").val();
-        if (isBlank(passwordValue) || isBlank(passConfirm) || !hasMinimum(passwordValue, 5) || (passwordValue != passConfirm)) {
+        if (PANDOX.UTIL.isBlank(passwordValue) || PANDOX.UTIL.isBlank(passConfirm) || !PANDOX.UTIL.hasMinimum(passwordValue, 5) || (passwordValue != passConfirm)) {
             hasError = true;
-            markErrorOnField("password");
-            markErrorOnField("passwordconfirm");
+            PANDOX.FORM.markErrorOnField("password");
+            PANDOX.FORM.markErrorOnField("passwordconfirm");
         }
 
 
         var email = $("#i-email").val();
-        if (isBlank(email)) {
+        if (PANDOX.UTIL.isBlank(email)) {
             hasError = true;
-            markErrorOnField("email");
+            PANDOX.FORM.markErrorOnField("email");
         }
 
         if (hasError) {
@@ -101,7 +107,7 @@ $(function () {
                 var result = promise.responseJSON;
 
                 $.each(result, function (i, erro) {
-                    markErrorOnField(erro.field, erro.message);
+                    PANDOX.FORM.markErrorOnField(erro.field, erro.message);
                 });
 
                 $("#loading").hide();
@@ -113,6 +119,181 @@ $(function () {
     });
 });
 
+var PANDOX = PANDOX || {};
+
+/*=====================================================================================================
+ * Pandox SYSTEM Module
+ *======================================================================================================*/
+PANDOX.SYSTEM = function () {
+
+    var init = function () {
+        isLogged();
+    };
+
+    var isLogged = function () {
+
+        var token = $.cookie("X-WOMU-Auth");
+
+        if (!PANDOX.UTIL.isBlank(token)) {
+            // LOGADO
+            var request = $.get("/api/me", function (account) {
+                console.log("done", account);
+                $("#menu-avatar").show();
+                $("#menu-login").hide();
+
+
+            })
+            .fail(function () {
+                console.log("fail");
+                $("#menu-avatar").hide();
+                $("#menu-login").show();
+            })
+        };
+    };
+
+
+
+    var createAuthCookie = function (token) {
+        console.log("creating cookie", token);
+        $.cookie("X-WOMU-Auth", token, { path: "/"});
+    };
+
+    return {
+        init: init,
+        createAuthCookie: createAuthCookie
+    }
+
+}();
+
+
+/*=====================================================================================================
+ * Pandox LOGIN Module
+ *======================================================================================================*/
+PANDOX.LOGIN = function () {
+
+    var init = function () {
+        console.log("PANDOX.LOGIN.init()");
+
+        $("#loginForm").submit(function (event) {
+            event.preventDefault();
+            validateForm();
+        })
+    };
+
+    var validateForm = function () {
+
+        console.log("validateForm");
+
+        var hasError = false;
+
+        var loginInput = $("#i-login").val();
+        if (PANDOX.UTIL.isBlank(loginInput)) {
+            PANDOX.FORM.markErrorOnField("login", "Login é obrigatório");
+            hasError = true;
+        }
+
+        var passwordInput = $("#i-password").val();
+        if (PANDOX.UTIL.isBlank(passwordInput)) {
+            PANDOX.FORM.markErrorOnField("password", "Senha é obrigatório");
+            hasError = true;
+        }
+
+        if (!hasError) {
+            var json = {
+                login: loginInput,
+                password: passwordInput
+            };
+
+            var request = $.ajax({
+                url: "/api/login",
+                type: "POST",
+                data: JSON.stringify(json),
+                contentType: "application/json"
+            });
+
+
+            request.done(function (data, textStatus, jqXHR) {
+
+                console.log("data", data);
+                PANDOX.SYSTEM.createAuthCookie(data.token);
+
+
+                $("#loginForm").hide();
+            });
+
+            request.fail(function (promise) {
+                console.log(promise);
+                var result = promise.responseJSON;
+
+                $.each(result, function (i, erro) {
+                    PANDOX.FORM.markErrorOnField(erro.field, erro.message);
+                });
+
+                $("#loading").hide();
+                $("#btn-submit").show();
+            });
+
+        }
+
+    };
+
+    return {
+        init: init,
+        validateForm: validateForm
+    };
+
+}();
+
+
+
+/*=====================================================================================================
+ * Pandox FORM Module
+ *======================================================================================================*/
+PANDOX.FORM = function () {
+
+    var init = function () {};
+
+    var markErrorOnField = function (field, msg) {
+        $("#g-" + field).addClass("has-error has-feedback");
+        $("#ig-" + field).addClass("glyphicon-remove");
+
+        $("#h-" + field).hide();
+        $("#e-" + field).show();
+        $("#e-" + field).html(msg);
+    }
+
+    return {
+
+        init: init,
+        markErrorOnField: markErrorOnField
+    };
+}();
+
+
+
+/*=====================================================================================================
+ * Pandox UTIL Module
+ *======================================================================================================*/
+PANDOX.UTIL = function () {
+
+    var init = function () {};
+
+    var hasMinimum = function (value, size) {
+        return value.length >= size;
+    };
+
+    var isBlank = function (text) {
+        return (!text || /^\s*$/.test(text));
+    };
+
+    return {
+        init: init,
+        hasMinimum: hasMinimum,
+        isBlank: isBlank
+    }
+
+}();
+
 
 function clearInput(field) {
     $("#g-" + field).removeClass("has-success has-feedback has-error");
@@ -120,19 +301,6 @@ function clearInput(field) {
     $("#h-" + field).show();
     $("#e-" + field).html('');
     $("#e-" + field).hide();
-}
-
-function hasMinimum(value, size) {
-    return value.length >= size;
-}
-
-function markErrorOnField(field, msg) {
-    $("#g-" + field).addClass("has-error has-feedback");
-    $("#ig-" + field).addClass("glyphicon-remove");
-
-    $("#h-" + field).hide();
-    $("#e-" + field).show();
-    $("#e-" + field).html(msg);
 }
 
 function markSuccessOnField(field) {
@@ -144,8 +312,4 @@ function markSuccessOnField(field) {
 
 function loginExist(login) {
     return false;
-}
-
-function isBlank(str) {
-    return (!str || /^\s*$/.test(str));
 }
