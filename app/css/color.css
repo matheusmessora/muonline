@@ -19,6 +19,15 @@ h1 {
     padding-bottom: 8px;
     margin-bottom: 15px;
 }
+h5 {
+    margin: 0;
+    font-size: 14px;
+}
+h6 {
+    margin-bottom: 0;
+    padding-right: 10px;
+    font-size: 11px;
+}
 strong {
     color: #AD835A;
 }
@@ -122,7 +131,6 @@ TOP MENU
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
     color: #F3E6D0;
-    /*    background: #000;*/
     border-bottom: 2px solid #e60101;
     text-shadow: 0px 0px 10px #F3E6D0;
     border-top: 0;
@@ -134,7 +142,7 @@ TOP MENU
     background: #000;
     border: 0;
     border-bottom: 2px solid #e60101;
-    text-shadow: 0px 0px 10px #F3E6D0;
+    text-shadow: 0px 0px 10px #87c7eb;
     border-top: 0;
 }
 @media (max-width: 992px) {
@@ -146,6 +154,11 @@ TOP MENU
         border-bottom: 0;
         border-top: 0;
     }
+}
+.navbar-default .navbar-avatar>.active>a,
+.navbar-default .navbar-avatar>.active>a:hover,
+.navbar-default .navbar-avatar>.active>a:focus {
+    background: #191814;
 }
 /*
 ====================================
@@ -178,12 +191,17 @@ NAV TABS
     background: none;
     border-color: transparent;
 }
-.panel-heading {
+.panel-default>.panel-heading {
     color: #F3E6D0;
     border-bottom: 1px solid #2E2925;
+    background: none;
+}
+.panel-title {
+    text-transform: uppercase;
 }
 .panel-body {
     /* background: url(http://us.battle.net/d3/static/images/layout/section-bg.jpg) repeat-x;   */
+    padding: 0;
 }
 /*
 ====================================
@@ -219,8 +237,74 @@ BTN
 }
 /*
 ====================================
-TABLE
+ACCORDION
 ====================================  */
+
+.list-group {
+    margin-bottom: 0;
+}
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 0;
+}
+.list-group-item {
+    margin-bottom: 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #28241d;
+    padding: 0;
+}
+.list-group-item>a {
+    padding: 10px 15px;
+    display: block;
+}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    background: #000000;
+    color: #F3E6D0;
+    border-bottom: 1px solid #28241d;
+    text-decoration: none;
+}
+.list-group-item>a,
+.list-group-item>a:hover,
+.list-group-item>a:focus {
+    text-decoration: none;
+}
+.list-group-item.active>a,
+.list-group-item.active>a:hover,
+.list-group-item.active>a:focus,
+.list-sub-group .list-group-item.active>a,
+.list-sub-group .list-group-item.active>a:hover,
+.list-sub-group .list-group-item.active>a:focus
+{
+    /*    font-size: 16px;*/
+    background: #000000;
+    color: #F3E6D0;
+/*    color: #87c7eb;*/
+
+    text-decoration: none;
+}
+.list-sub-group .list-group-item>a {
+    padding: 10px 0px 10px 30px;
+    background: #0D0C0A;
+}
+
+.list-group-item .glyphicon {
+    font-size: 10px;
+}
+.list-group-item.active>a>i {
+    color: #87c7eb;
+}
+/*
+====================================
+BREADCUMB
+====================================  */
+.breadcrumb {
+    background: none;
+    border-radius: 0;
+}
+
 
 /*
 ====================================
@@ -231,13 +315,17 @@ MISc
     color: #e60101;
 }
 .text-info {
-    color: #3aaafe    ;
+    color: #3aaafe;
+}
+.text-success {
+    color: #69ba02     ;
 }
 .avatar {
-    border: 2px solid #3aaafe  ;
+    border: 2px solid #3aaafe;
 }
-#menu-avatar:hover, #menu-avatar>img:hover{
-    border-color: #87c7eb    ;
+#menu-avatar:hover,
+#menu-avatar>img:hover {
+    border-color: #87c7eb;
     color: #87c7eb
 }
 /*
@@ -249,7 +337,6 @@ MISc
 
 .content {
     background: url(http://us.battle.net/d3/static/images/layout/content-top.jpg) repeat-x #12110f;
-
     background-position: -3px 0;
     border-left: 3px solid #1d1916;
     border-right: 3px solid #1d1916;
@@ -284,4 +371,7 @@ MISc
 .skybar-construction {
     background: url(http://images2.alphacoders.com/266/266290.jpg) repeat-x;
     background-position: -50px -260px;
+}
+.credits {
+
 }

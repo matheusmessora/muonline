@@ -19,9 +19,16 @@ $(function () {
 
     // Highlither
     $("li").removeClass("active");
-    if (location.pathname === "/") {
+    var pathname = location.pathname;
+    if (pathname === "/") {
         $("#logo").addClass('active');
     } else {
+        pathname.replace("#", "");
+
+        if(PANDOX.UTIL.contains(pathname, "conta")){
+            $("#menu-avatar").addClass("active");
+        }
+
         $("a[href='" + location.pathname + "']").parent().addClass('active');
     }
 
@@ -137,17 +144,19 @@ PANDOX.SYSTEM = function () {
         if (!PANDOX.UTIL.isBlank(token)) {
             // LOGADO
             var request = $.get("/api/me", function (account) {
-                console.log("done", account);
-                $("#menu-avatar").show();
-                $("#menu-login").hide();
 
-
-            })
-            .fail(function () {
-                console.log("fail");
-                $("#menu-avatar").hide();
-                $("#menu-login").show();
-            })
+                    if (account) {
+                        $("#menu-avatar").show();
+                        $("#menu-login").hide();
+                    } else {
+                        $("#menu-avatar").hide();
+                        $("#menu-login").show();
+                    }
+                })
+                .fail(function () {
+                    $("#menu-avatar").hide();
+                    $("#menu-login").show();
+                })
         };
     };
 
@@ -155,7 +164,9 @@ PANDOX.SYSTEM = function () {
 
     var createAuthCookie = function (token) {
         console.log("creating cookie", token);
-        $.cookie("X-WOMU-Auth", token, { path: "/"});
+        $.cookie("X-WOMU-Auth", token, {
+            path: "/"
+        });
     };
 
     return {
@@ -218,7 +229,7 @@ PANDOX.LOGIN = function () {
                 PANDOX.SYSTEM.createAuthCookie(data.token);
 
 
-                $("#loginForm").hide();
+                window.location.assign("/conta")
             });
 
             request.fail(function (promise) {
@@ -286,10 +297,15 @@ PANDOX.UTIL = function () {
         return (!text || /^\s*$/.test(text));
     };
 
+    var contains = function (string, search){
+        return string.indexOf(search) != -1;
+    }
+
     return {
         init: init,
         hasMinimum: hasMinimum,
-        isBlank: isBlank
+        isBlank: isBlank,
+        contains: contains
     }
 
 }();
