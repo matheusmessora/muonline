@@ -182,11 +182,55 @@ NAV TABS
     border-bottom-color: #12110f;
     color: #F3E6D0;
 }
+.thumbnail {
+    padding: 3px;
+    background: #171614;
+    border-color: #171614;
+}
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+    border-color: #87c7eb;
+    text-decoration: none;
+
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+    -webkit-animation-name: hover;
+    animation-name: hover;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+.thumbnail>.img-thumbnail {
+    margin-bottom: 10px;
+}
 .img-thumbnail {
     background-color: #300E0D;
     border: 1px solid #300E0D;
     padding: 0px;
 }
+.thumbnail>h3 {
+    font-size: 15px;
+    color: #F3E6D0;
+    padding-left: 10px;
+    margin: 0;
+}
+.price {
+    font-size: 18px;
+    padding-left: 10px;
+    color: #69ba02;
+}
+.currency {
+    font-size: 14px;
+}
+
 .panel {
     background: none;
     border-color: transparent;
@@ -276,20 +320,17 @@ ACCORDION
 .list-group-item.active>a:focus,
 .list-sub-group .list-group-item.active>a,
 .list-sub-group .list-group-item.active>a:hover,
-.list-sub-group .list-group-item.active>a:focus
-{
+.list-sub-group .list-group-item.active>a:focus {
     /*    font-size: 16px;*/
     background: #000000;
     color: #F3E6D0;
-/*    color: #87c7eb;*/
-
+    /*    color: #87c7eb;*/
     text-decoration: none;
 }
 .list-sub-group .list-group-item>a {
     padding: 10px 0px 10px 30px;
     background: #0D0C0A;
 }
-
 .list-group-item .glyphicon {
     font-size: 10px;
 }
@@ -300,12 +341,11 @@ ACCORDION
 ====================================
 BREADCUMB
 ====================================  */
+
 .breadcrumb {
     background: none;
     border-radius: 0;
 }
-
-
 /*
 ====================================
 MISc
@@ -318,7 +358,7 @@ MISc
     color: #3aaafe;
 }
 .text-success {
-    color: #69ba02     ;
+    color: #69ba02;
 }
 .avatar {
     border: 2px solid #3aaafe;
@@ -372,6 +412,4 @@ MISc
     background: url(http://images2.alphacoders.com/266/266290.jpg) repeat-x;
     background-position: -50px -260px;
 }
-.credits {
-
-}
+.credits {}
