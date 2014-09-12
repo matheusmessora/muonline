@@ -188,7 +188,11 @@ PANDOX.UTIL = function () {
  *======================================================================================================*/
 PANDOX.SHOP = function () {
 
-    var init = function () {};
+    var init = function () {
+        console.log("PANDOX.SHOP.init()");
+        $("#shop-cart").hide();
+        bindShopItem();
+    };
 
     var getSwords = function () {
         // LOGADO
@@ -203,6 +207,31 @@ PANDOX.SHOP = function () {
                 $("#menu-login").show();
             })
     };
+    
+    var bindBackBtn = function() {
+        $("#shop-back")
+    }
+
+    var bindShopItem = function () {
+        $(".shop-item").click(function (event) {
+            event.preventDefault();
+
+            var itemId = $(this).attr('x-item-id');
+            console.log(itemId);
+
+            $("#shop-display").fadeOut();
+            
+            $("#shop-cart").show();
+
+//            $.getJSON("/shop/includes/sword.js", {})
+//                .done(function (json) {
+//                    $("#template-container").loadTemplate("/app/views/shop.html", json, {
+//                        isFile: true
+//                    });
+//                });
+
+        })
+    }
 
 
     return {

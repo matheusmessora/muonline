@@ -228,7 +228,10 @@ a.thumbnail.active {
     color: #69ba02;
 }
 .currency {
-    font-size: 14px;
+    font-size: 13px;
+}
+.cents {
+    font-size: 13px;
 }
 
 .panel {
