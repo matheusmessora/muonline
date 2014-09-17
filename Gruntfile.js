@@ -57,12 +57,12 @@ module.exports = function (grunt) {
 
         useminPrepare: {
             html: 'head.html',
-            dest: 'dist/'
+            dest: 'dist'
 
         },
 
         usemin: {
-            html: 'dist/head.html',
+            html: 'head.html',
             options: {
                 assetsDirs: ['dist/app/css', 'dist/app/js']
             }
