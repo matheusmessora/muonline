@@ -15,25 +15,6 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
 
-        clean: {
-            build: {
-                src: ["dist", "tmp", ".tmp"]
-            }
-        },
-
-        useminPrepare: {
-            html: 'head.html',
-            dest: '.tmp'
-
-        },
-
-        usemin: {
-            html: 'dist/head.html',
-            options: {
-                assetsDirs: '.tmp'
-            }
-        },
-
         //        htmlmin: {
         //            dist: {
         //                options: {
@@ -68,24 +49,39 @@ module.exports = function (grunt) {
         //                dest: 'tmp/js/app.js'
         //            },
         //        },
+        clean: {
+            build: {
+                src: ["dist", "tmp", ".tmp"]
+            }
+        },
+
+        useminPrepare: {
+            html: 'head.html',
+            dest: 'dist/'
+
+        },
+
+        usemin: {
+            html: 'dist/head.html',
+            options: {
+                assetsDirs: ['dist/app/css', 'dist/app/js']
+            }
+        },
+
 
         filerev: {
-            build: {
-
+            dist: {
                 options: {
                     encoding: 'utf8',
                     algorithm: 'md5',
                     length: 8
+                },
+                files: {
+                    src: [
+                        'dist/**/*.js',
+                        'dist/**/*.css',
+                    ]
                 }
-            }
-        },
-
-        cdn: {
-            options: {
-                cdn: 'https://s3-sa-east-1.amazonaws.com/muonline/'
-            },
-            dist: {
-
             }
         }
     });
