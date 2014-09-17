@@ -9,7 +9,7 @@ $(function () {
 
 
     // GetNews
-    $.getJSON("/app/js/news.js", {})
+    $.getJSON("/app/js/news.json", {})
         .done(function (json) {
             $("#template-container").loadTemplate("/app/views/news.html", json, {
                 isFile: true
