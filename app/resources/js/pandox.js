@@ -207,7 +207,7 @@ PANDOX.SHOP = function () {
                 $("#menu-login").show();
             })
     };
-    
+
     var bindBackBtn = function() {
         $("#shop-back")
     }
@@ -220,7 +220,7 @@ PANDOX.SHOP = function () {
             console.log(itemId);
 
             $("#shop-display").fadeOut();
-            
+
             $("#shop-cart").show();
 
 //            $.getJSON("/shop/includes/sword.js", {})

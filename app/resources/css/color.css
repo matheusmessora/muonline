@@ -1,5 +1,5 @@
 body {
-    background-image: url("/app/img/bg.png");
+    background-image: url("/resources/img/bg.png");
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-position: 0 54px;

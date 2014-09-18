@@ -7,93 +7,96 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-cdn');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-filerev');
+    grunt.loadNpmTasks('grunt-rev');
     grunt.loadNpmTasks('grunt-usemin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
 
     // Define the configuration for all the tasks
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-
-        //        htmlmin: {
-        //            dist: {
-        //                options: {
-        //                    collapseWhitespace: true,
-        //                    collapseBooleanAttributes: true,
-        //                    removeCommentsFromCDATA: true,
-        //                    removeOptionalTags: true
-        //                },
-        //                files: [{
-        //                    expand: true,
-        //                    cwd: '.',
-        //                    src: ['*.html', '**/*.html'],
-        //                    dest: 'dist/'
-        //                }]
-        //            }
-        //        },
-        //
-        //        uglify: {
-        //            build: {
-        //                files: [{
-        //                    expand: true,
-        //                    cwd: 'tmp/',
-        //                    src: '**/*.js',
-        //                    dest: 'dist/app/js'
-        //                }]
-        //            }
-        //        },
-        //
-        //        concat: {
-        //            js: {
-        //                src: 'app/**/*.js',
-        //                dest: 'tmp/js/app.js'
-        //            },
-        //        },
         clean: {
             build: {
-                src: ["dist", "tmp", ".tmp"]
+                src: ["dist", "tmp", ".tmp", "dest", "src"]
+            },
+
+            trash: {
+                src: ["tmp", ".tmp", "dest", "src"]
             }
         },
 
         useminPrepare: {
-            html: 'head.html',
-            dest: 'dist'
-
-        },
-
-        usemin: {
-            html: 'head.html',
+            src: ['app/includes/head.html', 'dist/includes/head.html'],
             options: {
-                assetsDirs: ['dist/app/css', 'dist/app/js']
+                dest: 'dist'
             }
         },
 
+        usemin: {
+            html: 'dist/includes/head.html',
+            options: {
+                assetsDirs: ['dist']
+            }
+        },
 
-        filerev: {
+        rev: {
+            options: {
+                encoding: 'utf8',
+                algorithm: 'md5',
+                length: 8
+            },
             dist: {
-                options: {
-                    encoding: 'utf8',
-                    algorithm: 'md5',
-                    length: 8
-                },
                 files: {
                     src: [
-                        'dist/**/*.js',
-                        'dist/**/*.css',
+                        'dist/app/resources/js/app.min.js',
+                        'dist/app/resources/css/style.min.css'
                     ]
                 }
+            }
+        },
+
+        copy: {
+            dist: {
+                files: [
+                    {
+                        cwd: 'app/',
+                        expand: true,
+                        src: ['**/*.html'],
+                        dest: 'dist'
+                    }
+                ]
+            }
+        },
+
+        htmlmin: {
+            dist: {
+                options: {
+                    collapseWhitespace: true,
+                    collapseBooleanAttributes: true,
+                    removeCommentsFromCDATA: true,
+                    removeOptionalTags: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dist',
+                    src: ['**/*.html'],
+                    dest: 'dist'
+                }]
             }
         }
     });
 
-    // A very basic default task.
     grunt.registerTask('dist', [
         'clean',
         'useminPrepare',
         'concat:generated',
         'cssmin:generated',
         'uglify:generated',
-        'filerev',
-        'usemin'
+        'rev',
+        'copy:dist',
+        'usemin',
+        'htmlmin:dist',
+        'clean:trash'
     ]);
 };
