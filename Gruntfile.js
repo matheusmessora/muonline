@@ -10,7 +10,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-rev');
     grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
-
+    grunt.loadNpmTasks('grunt-contrib-compress');
 
     // Define the configuration for all the tasks
     grunt.initConfig({
@@ -82,6 +82,20 @@ module.exports = function (grunt) {
                     cwd: 'dist',
                     src: ['**/*.html'],
                     dest: 'dist'
+                }]
+            }
+        },
+
+        compress: {
+            main: {
+                options: {
+                    archive: 'site.zip'
+                },
+                files: [{
+                        src: ['**'],
+                        dest: 'zip/',
+                        cwd: 'dist/',
+                        expand: true
                 }]
             }
         }
