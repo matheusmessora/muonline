@@ -192,7 +192,6 @@ a.thumbnail:focus,
 a.thumbnail.active {
     border-color: #87c7eb;
     text-decoration: none;
-
     -webkit-transform: translateY(-6px);
     transform: translateY(-6px);
     -webkit-animation-name: hover;
@@ -222,7 +221,6 @@ a.thumbnail.active {
     padding-left: 10px;
     margin: 0;
 }
-
 .panel {
     background: none;
     border-color: transparent;
@@ -405,11 +403,11 @@ MISc
     background-position: -50px -260px;
 }
 .credits {}
-
 /*
 ====================================
 SHOP
 ====================================  */
+
 #shop-display .price {
     font-size: 18px;
     padding-left: 10px;
@@ -418,12 +416,13 @@ SHOP
 #shop-display .currency {
     font-size: 13px;
 }
-
 #shop-cart .thumbnail {
     padding: 5px 20px;
 }
-
-
+#shop-cart .img-thumbnail {
+    background: none;
+    border: none;
+}
 #shop-cart .price {
     font-size: 32px;
     color: #69ba02;
@@ -435,9 +434,8 @@ SHOP
     color: #ad835a;
     font-size: 18px;
 }
-
 #shop-cart select {
-/*
+    /*
        background: #737373;
     color: #F3E6D0;
     border-color: #28241d
