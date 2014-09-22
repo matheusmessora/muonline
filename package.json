@@ -13,6 +13,7 @@
     "grunt-usemin": "^2.4.0",
     "grunt-rev": "^0.1.0",
     "grunt-contrib-copy": "^0.6.0",
-    "grunt-contrib-compress": "^0.11.0"
+    "grunt-contrib-compress": "^0.11.0",
+    "grunt-strip": "^0.2.1"
   }
 }

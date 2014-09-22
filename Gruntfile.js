@@ -11,6 +11,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-strip');
 
     // Define the configuration for all the tasks
     grunt.initConfig({
@@ -92,11 +93,18 @@ module.exports = function (grunt) {
                     archive: 'site.zip'
                 },
                 files: [{
-                        src: ['**'],
-                        dest: 'zip/',
-                        cwd: 'dist/',
-                        expand: true
+                    src: ['**'],
+                    dest: 'zip/',
+                    cwd: 'dist/',
+                    expand: true
                 }]
+            }
+        },
+
+        strip: {
+            main: {
+                src: 'dist/resources/js/app.min.js',
+                dest: 'dist/resources/js/app.min.js'
             }
         }
     });
@@ -111,6 +119,7 @@ module.exports = function (grunt) {
         'copy:dist',
         'usemin',
         'htmlmin:dist',
+        'strip:main',
         'clean:trash'
     ]);
 };

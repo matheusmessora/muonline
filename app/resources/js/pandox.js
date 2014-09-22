@@ -29,7 +29,10 @@ PANDOX.SYSTEM = function () {
                     $("#menu-avatar").hide();
                     $("#menu-login").show();
                 })
-        };
+        } else {
+            $("#menu-avatar").hide();
+            $("#menu-login").show();
+        }
     };
 
 
@@ -105,7 +108,7 @@ PANDOX.LOGIN = function () {
             });
 
             request.fail(function (promise) {
-                console.log(promise);
+                console.log("promise:", promise);
                 var result = promise.responseJSON;
 
                 $.each(result, function (i, erro) {
@@ -208,7 +211,7 @@ PANDOX.SHOP = function () {
             })
     };
 
-    var bindBackBtn = function() {
+    var bindBackBtn = function () {
         $("#shop-back")
     }
 
@@ -223,12 +226,12 @@ PANDOX.SHOP = function () {
 
             $("#shop-cart").show();
 
-//            $.getJSON("/shop/includes/sword.js", {})
-//                .done(function (json) {
-//                    $("#template-container").loadTemplate("/app/views/shop.html", json, {
-//                        isFile: true
-//                    });
-//                });
+            //            $.getJSON("/shop/includes/sword.js", {})
+            //                .done(function (json) {
+            //                    $("#template-container").loadTemplate("/app/views/shop.html", json, {
+            //                        isFile: true
+            //                    });
+            //                });
 
         })
     }
