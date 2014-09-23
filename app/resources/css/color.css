@@ -360,13 +360,11 @@ MISc
 }
 /*
 ====================================
-
            MY THEME
-
 ====================================  */
 
 .content {
-    background: url(http://us.battle.net/d3/static/images/layout/content-top.jpg) repeat-x #12110f;
+    background: url("/resources/img/content-top-01.jpg") repeat-x #12110f;
     background-position: -3px 0;
     border-left: 3px solid #1d1916;
     border-right: 3px solid #1d1916;
@@ -396,10 +394,10 @@ MISc
     border-bottom: 1px solid #300a00;
 }
 .skybar-demon {
-    background: url(http://us.battle.net/d3/static/images/layout/bgs/basics/introduction.jpg) repeat-x;
+    background: url("/resources/img/header-01.jpg") repeat-x;
 }
 .skybar-construction {
-    background: url(http://images2.alphacoders.com/266/266290.jpg) repeat-x;
+    background: url("/resources/img/header-mu-sm01.jpg") repeat-x;
     background-position: -50px -260px;
 }
 .credits {}
