@@ -50,8 +50,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        'dist/app/resources/js/app.min.js',
-                        'dist/app/resources/css/style.min.css'
+                        'dist/**/*.{js,css,img,jpg,gif,png}',
                     ]
                 }
             }
