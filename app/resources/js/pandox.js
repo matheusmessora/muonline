@@ -195,6 +195,7 @@ PANDOX.SHOP = function () {
         console.log("PANDOX.SHOP.init()");
         $("#shop-cart").hide();
         bindShopItem();
+        bindBackBtn();
     };
 
     var getSwords = function () {
@@ -212,7 +213,17 @@ PANDOX.SHOP = function () {
     };
 
     var bindBackBtn = function () {
-        $("#shop-back")
+        $("#shop-back").click(function (event) {
+            event.preventDefault();
+
+            var itemId = $(this).attr('x-item-id');
+            console.log(itemId);
+
+            $("#shop-display").fadeIn();
+
+            $("#shop-cart").hide();
+
+        })
     }
 
     var bindShopItem = function () {
