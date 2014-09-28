@@ -102,8 +102,7 @@ module.exports = function (grunt) {
 
         strip: {
             main: {
-                src: 'dist/resources/js/app.min.js',
-                dest: 'dist/resources/js/app.min.js'
+                src: 'dist/resources/js/*.min.js'
             }
         }
     });
@@ -118,7 +117,7 @@ module.exports = function (grunt) {
         'copy:dist',
         'usemin',
         'htmlmin:dist',
-        'strip:main',
-        'clean:trash'
+        'strip:main'
+        //'clean:trash'
     ]);
 };
