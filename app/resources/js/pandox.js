@@ -233,9 +233,9 @@ PANDOX.SHOP = function () {
             var itemId = $(this).attr('x-item-id');
             console.log(itemId);
 
-            $("#shop-display").fadeOut();
+            $("#shop-display").hide();
 
-            $("#shop-cart").show();
+            $("#shop-cart").fadeIn();
 
             //            $.getJSON("/shop/includes/sword.js", {})
             //                .done(function (json) {
