@@ -7,7 +7,7 @@ PANDOX.SYSTEM = function () {
 
     var init = function () {
         isAUthenticated();
-        analytics();
+        //        analytics();
     };
 
 
@@ -308,6 +308,7 @@ PANDOX.SHOP = function () {
         $("#shop-cart").hide();
         bindShopItem();
         bindBackBtn();
+        bindVIPBtn();
     };
 
     var getSwords = function () {
@@ -324,6 +325,25 @@ PANDOX.SHOP = function () {
             })
     };
 
+    var getVIP = function () {
+        // GetNews
+        $.getJSON("/shop/includes/vip.json", {})
+            .done(function (json) {
+                $("#shop-cart").loadTemplate("/views/news.html", json, {
+                    isFile: true
+                });
+
+                $("#shop-cart").fadeIn();
+            });
+    };
+
+    var bindVIPBtn = function () {
+        if (window.location.pathname == '/shop/vip') {
+            getVIP();
+        };
+
+    };
+
     var bindBackBtn = function () {
         $("#shop-back").click(function (event) {
             event.preventDefault();
@@ -336,7 +356,7 @@ PANDOX.SHOP = function () {
             $("#shop-cart").hide();
 
         })
-    }
+    };
 
     var bindShopItem = function () {
         $(".shop-item").click(function (event) {
@@ -357,12 +377,14 @@ PANDOX.SHOP = function () {
             //                });
 
         })
-    }
+    };
 
 
     return {
         init: init,
-        getSwords: getSwords
+        getSwords: getSwords,
+        getVIP: getVIP,
+        bindVIPBtn : bindVIPBtn
     }
 
 

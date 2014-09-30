@@ -420,6 +420,7 @@ SHOP
     #shop-cart {
         text-align: center;
     }
+
 }
 @media (min-width: 768px) {
     #shop-cart h2 {
@@ -429,6 +430,9 @@ SHOP
 #shop-cart .thumbnail {
     padding: 5px 20px;
 }
+#shop-cart #btn-submit {
+        margin-top: 20px;
+    }
 #shop-cart .img-thumbnail {
     background: none;
     border: none;
