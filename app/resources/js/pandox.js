@@ -11,7 +11,6 @@ PANDOX.SYSTEM = function () {
     };
 
     var analytics = function () {
-        console.log("analytics.loading");
 
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -24,11 +23,11 @@ PANDOX.SYSTEM = function () {
             a.src = g;
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        console.log("analytics.done");
 
         ga('create', 'UA-47755345-2', 'auto');
         ga('send', 'pageview');
     };
+
 
     var isLogged = function () {
 
