@@ -6,9 +6,10 @@ var PANDOX = PANDOX || {};
 PANDOX.SYSTEM = function () {
 
     var init = function () {
-        isLogged();
+        isAUthenticated();
         analytics();
     };
+
 
     var analytics = function () {
 
@@ -29,44 +30,95 @@ PANDOX.SYSTEM = function () {
     };
 
 
-    var isLogged = function () {
+    var isAUthenticated = function () {
 
         var token = $.cookie("X-WOMU-Auth");
 
+
+
         if (!PANDOX.UTIL.isBlank(token)) {
+
+            var cache = localStorage.getItem("X-WOMU-account");
+            if (cache !== null) {
+                loadAccount(JSON.parse(cache));
+            }
+
+            var cacheHeroes = localStorage.getItem("X-WOMU-heroes");
+            if (cacheHeroes !== null) {
+                PANDOX.USER.renderHeroes(JSON.parse(cacheHeroes));
+            } else {
+                PANDOX.USER.loadApiHeroes(JSON.parse(cache));
+            }
+
+
+
             // LOGADO
             var request = $.get("/api/me", function (account) {
 
                     if (account) {
-                        $("#menu-avatar").show();
-                        $("#menu-login").hide();
+                        localStorage.setItem("X-WOMU-account", JSON.stringify(account));
+                        PANDOX.USER.loadApiHeroes(account);
                     } else {
-                        $("#menu-avatar").hide();
-                        $("#menu-login").show();
+                        clearCookie();
                     }
                 })
                 .fail(function () {
-                    $("#menu-avatar").hide();
-                    $("#menu-login").show();
+                    clearCookie();
                 })
         } else {
-            $("#menu-avatar").hide();
-            $("#menu-login").show();
+
+            clearCookie();
         }
     };
 
 
+    var loadAccount = function (account) {
+        $(".account-login").html(account.login);
+        $("#menu-avatar").show();
+        $("#menu-login").hide();
+
+    };
+
+
+    var clearCookie = function () {
+        $("#menu-avatar").hide();
+        $("#menu-login").show();
+        $(".account-login").html("");
+
+        $.removeCookie("X-WOMU-Auth");
+        localStorage.removeItem("X-WOMU-account");
+        localStorage.removeItem("X-WOMU-heroes");
+
+    };
 
     var createAuthCookie = function (token) {
-        console.log("creating cookie", token);
         $.cookie("X-WOMU-Auth", token, {
             path: "/"
         });
+
+        // LOGADO
+        var request = $.get("/api/me", function (account) {
+
+                if (account) {
+                    console.log("tem conta", account);
+                    localStorage.setItem("X-WOMU-account", JSON.stringify(account));
+                    window.location.assign("/conta");
+
+                } else {
+                    clearCookie();
+                }
+            })
+            .fail(function () {
+                clearCookie();
+            })
+
+
     };
 
     return {
         init: init,
-        createAuthCookie: createAuthCookie
+        createAuthCookie: createAuthCookie,
+        clearCookie: clearCookie
     }
 
 }();
@@ -79,11 +131,20 @@ PANDOX.LOGIN = function () {
 
     var init = function () {
         console.log("PANDOX.LOGIN.init()");
+        bindLogout();
+
 
         $("#loginForm").submit(function (event) {
             event.preventDefault();
             validateForm();
         })
+    };
+
+    var bindLogout = function () {
+        $(".logout").click(function (event) {
+            PANDOX.SYSTEM.clearCookie();
+        });
+
     };
 
     var validateForm = function () {
@@ -119,12 +180,8 @@ PANDOX.LOGIN = function () {
 
 
             request.done(function (data, textStatus, jqXHR) {
-
-                console.log("data", data);
                 PANDOX.SYSTEM.createAuthCookie(data.token);
 
-
-                window.location.assign("/conta")
             });
 
             request.fail(function (promise) {
@@ -150,6 +207,41 @@ PANDOX.LOGIN = function () {
 
 }();
 
+
+/*=====================================================================================================
+ * Pandox USER Module
+ *======================================================================================================*/
+PANDOX.USER = function () {
+
+    var init = function () {
+
+
+    };
+
+    var loadApiHeroes = function (account) {
+
+        $.get("/api/me/hero").done(function (heroes) {
+            console.log("HEROEES", heroes);
+            localStorage.setItem("X-WOMU-heroes", JSON.stringify(heroes));
+            renderHeroes(heroes);
+        });
+    };
+
+    var renderHeroes = function (heroes) {
+        $("#heroes").html("");
+        $.each(heroes, function (i, hero) {
+            $("#heroes").append(
+                $('<li class="list-group-item">').append('<a href="#">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span></a>'));
+
+        });
+    };
+
+    return {
+        init: init,
+        loadApiHeroes: loadApiHeroes,
+        renderHeroes: renderHeroes
+    };
+}();
 
 
 /*=====================================================================================================
@@ -189,7 +281,7 @@ PANDOX.UTIL = function () {
     };
 
     var isBlank = function (text) {
-        return (!text || /^\s*$/.test(text));
+        return (!text || / ^ \s * $ /.test(text));
     };
 
     var contains = function (string, search) {

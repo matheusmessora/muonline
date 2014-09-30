@@ -5,6 +5,7 @@ $(function () {
     PANDOX.FORM.init();
     PANDOX.UTIL.init();
     PANDOX.LOGIN.init();
+    PANDOX.USER.init();
     PANDOX.SHOP.init();
 
 
