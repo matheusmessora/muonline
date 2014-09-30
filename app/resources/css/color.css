@@ -414,6 +414,18 @@ SHOP
 #shop-display .currency {
     font-size: 13px;
 }
+/*Extra-small*/
+
+@media (max-width: 768px) {
+    #shop-cart {
+        text-align: center;
+    }
+}
+@media (min-width: 768px) {
+    #shop-cart h2 {
+        margin-top: 0px;
+    }
+}
 #shop-cart .thumbnail {
     padding: 5px 20px;
 }
