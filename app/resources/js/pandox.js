@@ -308,7 +308,7 @@ PANDOX.SHOP = function () {
         $("#shop-cart").hide();
         bindShopItem();
         bindBackBtn();
-        bindVIPBtn();
+        //        bindVIPBtn();
     };
 
     var getSwords = function () {
@@ -329,23 +329,22 @@ PANDOX.SHOP = function () {
         // GetNews
         $.getJSON("/shop/includes/vip.json", {})
             .done(function (json) {
-                $("#shop-cart").loadTemplate("/views/news.html", json, {
-                    isFile: true
+                $("#shop-cart").loadTemplate("/views/shop/cart.html", json, {
+                    isFile: true,
+                    complete: showShopCart
                 });
 
-                $("#shop-cart").fadeIn();
+
             });
     };
 
-    var bindVIPBtn = function () {
-        if (window.location.pathname == '/shop/vip') {
-            getVIP();
-        };
-
-    };
+    var showShopCart = function () {
+        $("#shop-cart").fadeIn();
+        bindBackBtn();
+    }
 
     var bindBackBtn = function () {
-        $("#shop-back").click(function (event) {
+        $(".shop-back").click(function (event) {
             event.preventDefault();
 
             var itemId = $(this).attr('x-item-id');
@@ -369,12 +368,14 @@ PANDOX.SHOP = function () {
 
             $("#shop-cart").fadeIn();
 
-            //            $.getJSON("/shop/includes/sword.js", {})
-            //                .done(function (json) {
-            //                    $("#template-container").loadTemplate("/app/views/shop.html", json, {
-            //                        isFile: true
-            //                    });
-            //                });
+
+            $.getJSON("/shop/includes/" + itemId + ".json", {})
+                .done(function (json) {
+                    $("#shop-cart").loadTemplate("/views/shop/cart.html", json, {
+                        isFile: true,
+                        complete: showShopCart
+                    });
+                });
 
         })
     };
@@ -383,8 +384,7 @@ PANDOX.SHOP = function () {
     return {
         init: init,
         getSwords: getSwords,
-        getVIP: getVIP,
-        bindVIPBtn : bindVIPBtn
+        getVIP: getVIP
     }
 
 
