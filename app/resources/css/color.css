@@ -346,33 +346,44 @@ BREADCUMB
 ALERTS
 ====================================  */
 
-.alert-success {
-    /*
-    border-color: #43a543;
-    background-color: #5ebd5e;
-    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-    color: #fff;
-    border-radius: 2px;
-    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px;
-    font-size: 13px;
-*/
+.alert {
     font-weight: normal;
     border-width: 0;
     border-radius: 0;
-    border-color: #8ac38b;
-    color: #356635;
-    background: #cde0c4;
-    border-left-color: rgb(138, 195, 139);
     border-left-style: solid;
     border-left-width: 10px;
     padding: 10px;
     font-size: 16px;
 }
-.alert-success h1 {
-    color: #356635;
+.alert h1 {
     border: 0;
     margin: 0;
+}
+.alert-success {
+    border-color: #8ac38b;
+    color: #356635;
+    background: #cde0c4;
+    border-left-color: rgb(138, 195, 139);
+}
+.alert-success h1 {
+    color: #356635;
+}
+.alert-danger {
+    border-color: #953b39;
+    color: #fff;
+    background: #c26565;
+}
+.alert-danger h1 {
+    color: #fff;
+}
+.alert a {
+    color: #fff;
+    text-decoration: underline;
+}
+.alert a:hover,
+.alert a:focus {
+    color: #fff;
+    text-decoration: underline;
 }
 /*
 ====================================
@@ -475,7 +486,7 @@ SHOP
     border: none;
 }
 .bank {
-       border: 0;
+    border: 0;
     background: none;
 }
 #shop-cart .price {
