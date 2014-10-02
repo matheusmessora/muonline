@@ -416,13 +416,7 @@ PANDOX.SHOP = function () {
 
                         $("#shop-working").hide();
                         $("#shop-revision").fadeIn();
-
-
                         $(".shop-rev-acc-credits").html(credits);
-
-
-
-
                         $(".shop-rev-credits-remaing").html(creditsRemaining);
 
                     })

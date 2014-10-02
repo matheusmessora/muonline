@@ -474,6 +474,10 @@ SHOP
     background: none;
     border: none;
 }
+.bank {
+       border: 0;
+    background: none;
+}
 #shop-cart .price {
     font-size: 32px;
     color: #69ba02;
