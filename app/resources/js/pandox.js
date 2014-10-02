@@ -124,9 +124,7 @@ PANDOX.SYSTEM = function () {
         $("#menu-login").show();
         $(".account-login").html("");
 
-        $.removeCookie("X-WOMU-Auth", {
-            path: "/"
-        });
+        $.removeCookie("X-WOMU-Auth", {path: "/"});
         localStorage.removeItem("X-WOMU-account");
         localStorage.removeItem("X-WOMU-heroes");
 
@@ -143,7 +141,7 @@ PANDOX.SYSTEM = function () {
 
 
     var removeRedirCookie = function (url) {
-        $.removeCookie("X-WOMU-Redir");
+        $.removeCookie("X-WOMU-Redir", {path: "/"});
     };
 
     var createAuthCookie = function (token) {
@@ -164,6 +162,7 @@ PANDOX.SYSTEM = function () {
 
                     console.log("redir", redir);
                     if (!PANDOX.UTIL.isBlank(redir)) {
+                        removeRedirCookie();
                         window.location.replace(redir);
                     }
                 } else {
