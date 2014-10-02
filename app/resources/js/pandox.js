@@ -7,6 +7,7 @@ PANDOX.SYSTEM = function () {
 
     var init = function () {
         processAuth();
+        loadServerInfo();
         //        analytics();
     };
 
@@ -52,6 +53,21 @@ PANDOX.SYSTEM = function () {
         };
         return false;
 
+    };
+
+    var loadServerInfo = function () {
+        var request = $.get("/api/server", function (server) {
+                $(".qtd-account").html(server.qtdAccount);
+                $(".qtd-chars").html(server.qtdChars);
+                if (server.serverUp) {
+                    $(".srver-status").html("Online");
+                } else {
+                    $(".srver-status").html("Offline");
+                }
+
+
+            })
+            .fail(function () {})
     };
 
 
@@ -108,7 +124,9 @@ PANDOX.SYSTEM = function () {
         $("#menu-login").show();
         $(".account-login").html("");
 
-        $.removeCookie("X-WOMU-Auth", { path: "/"});
+        $.removeCookie("X-WOMU-Auth", {
+            path: "/"
+        });
         localStorage.removeItem("X-WOMU-account");
         localStorage.removeItem("X-WOMU-heroes");
 
@@ -433,10 +451,10 @@ PANDOX.SHOP = function () {
                         $(".shop-rev-acc-credits").html(credits);
                         $(".shop-rev-credits-remaing").html(creditsRemaining);
 
-                        if(creditsRemaining > 0){
+                        if (creditsRemaining > 0) {
                             $(".shop-rev-credits-remaing").addClass('text-success');
                             $(".shop-rev-credits-remaing-title").addClass('text-success');
-                        }else {
+                        } else {
                             $(".shop-rev-credits-remaing").addClass('text-danger');
                             $(".shop-rev-credits-remaing-title").addClass('text-danger');
                             $("#checkout-revision").hide();
