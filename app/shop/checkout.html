@@ -17,15 +17,8 @@
             <div class="col-xs-9">
                 <h2>Shopping</h2>
             </div>
-            <div class="col-xs-3 text-right">
-                <ul class="breadcrumb">
-                    <h6>Créditos</h6>
-                    <h5 class="credits text-success">0.00</h5>
+            <!--# include file="/includes/credits.html" -->
 
-
-                </ul>
-
-            </div>
         </div>
     </div>
 
@@ -33,76 +26,86 @@
     <div class="container content">
 
         <!-- MAINBAR -->
+
         <div class="col-lg-9">
-            <div class="row separator">
+            <div id="shop-working">
+                <h1>Processando... <img class="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" /> </h1>
+            </div>
+            <div id="shop-revision" style="display: none;">
+                <div class="row">
 
-                <div class="alert alert-success" role="alert">Compra efetivada com sucesso!</div>
-                <h1>Confirmação de compra</h1>
-                <p>Confirme abaixo o item selecionado para compra.</p>
-                <div class="panel">
-                    <div class="panel-body">
-                        <table class="table table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th>Descrição</th>
-                                    <th>Quantidade</th>
-                                    <th>Valor</th>
-                                </tr>
-                            </thead>
-                            <tbody class="table-separator">
-                                <tr>
-                                    <td>Vip 15 dias</td>
-                                    <td>1</td>
-                                    <th>1900</th>
-                                </tr>
 
-                            </tbody>
-                        </table>
+
+                    <h1>Confirmação de compra</h1>
+                    <div id="shop-alert-success" class="alert alert-success" role="alert" style="display:none;"><h1>Parabéns!</h1><p>Compra realizada com sucesso!</p></div>
+                    <p>Confirme abaixo o item selecionado para compra.</p>
+                    <div class="panel">
+                        <div class="panel-body">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Descrição</th>
+                                        <th>Quantidade</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-separator">
+                                    <tr>
+                                        <td class="shop-rev-item-desc">Vip 15 dias</td>
+                                        <td class="shop-rev-item-qtd">1</td>
+                                        <th class="shop-rev-item-value">1900</th>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <h2>Saldo em conta</h2>
-                <div class="col-xs-6 col-sm-3 text-right">
-                    <p>Créditos atuais:</p>
-                    <p>Valor da compra:</p>
-                    <p>Créditos restantes:</p>
+                <div class="row">
+                    <h2>Saldo em conta</h2>
+                    <div class="col-xs-6 col-sm-3 text-right">
+                        <p>Créditos atuais:</p>
+                        <p>Valor da compra:</p>
+                        <p>Créditos restantes:</p>
+                    </div>
+                    <div class="col-xs-3 col-sm-1 text-right">
+                        <p><strong class="shop-rev-acc-credits">5.000</strong>
+                        </p>
+                        <p><strong class="shop-rev-item-value">900</strong>
+                        </p>
+                        <p><strong class="text-success shop-rev-credits-remaing">4.100</strong>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-xs-3 col-sm-1 text-right">
-                    <p><strong>5.000</strong>
-                    </p>
-                    <p><strong>900</strong>
-                    </p>
-                    <p><strong class="text-success">4.100</strong>
-                    </p>
-                </div>
-            </div>
 
-            <div class="row">
-                <h2>Revisão</h2>
-                <div class="col-xs-6 col-sm-3 text-right">
-                    <p>Conta World of MU:</p>
-                    <p>E-mail:</p>
+                <div class="row">
+                    <h2>Revisão</h2>
+                    <div class="col-xs-6 col-sm-3 text-right">
+                        <p>Conta World of MU:</p>
+                        <p>E-mail:</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 text-left">
+                        <p><strong class="shop-rev-acc-login">mmmkiller</strong>
+                        </p>
+                        <p><strong class="shop-rev-acc-email">math.tes@gmail.com</strong>
+                        </p>
+                        <p>
+                            <img id="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" style="display: none;" />
+                            <button id="shop-confirmation-btn" type="submit" class="btn btn-info btn-lg">Confirmar</button>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-xs-6 col-sm-3 text-left">
-                    <p><strong>mmmkiller</strong>
-                    </p>
-                    <p><strong>math.tes@gmail.com</strong>
-                    </p>
+
+                <div class="row text-left">
+
                     <p>
-                        <button id="btn-submit" type="submit" class="btn btn-info btn-lg">Comprar</button>
+                        <br />
+                        <br />
+                        <br /><em>Nunca forneça sua senha para ninguém.</em>
                     </p>
+
                 </div>
-            </div>
-            <div class="row text-left">
-
-                <p>
-                    <br />
-                    <br />
-                    <br /><em>Nunca forneça sua senha para ninguém.</em>
-                </p>
-
             </div>
 
         </div>

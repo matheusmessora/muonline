@@ -251,12 +251,15 @@ BTN
     border-bottom-color: #e60101;
 }
 .btn-info {
-    color: #ffcb8d;
     text-shadow: 0 0 5px #dd3400;
     border-radius: 0px;
-    border: 1px solid #000;
-    background: linear-gradient(#0e0d0c, #441411);
+    /*    border: 1px solid #000;*/
+    /*    background: linear-gradient(#0e0d0c, #441411);*/
+    /*    color: #ffcb8d;*/
     border: 1px solid #4c0b05;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #A30000 0, #660000 100%);
+    /*    border-color: rgba(0, 0, 0, 0.5);*/
     box-shadow: 3px 3px 10px #000;
 }
 .btn-info:hover,
@@ -264,9 +267,10 @@ BTN
 .btn-info:active,
 .btn-info.active,
 .open>.dropdown-toggle.btn-info {
-    background: linear-gradient(#0e0d0c, #441411);
+    /*    background: linear-gradient(#0e0d0c, #441411);*/
     color: #fff;
-    border: 1px solid #8e0000;
+    border: 1px solid #4c0b05;
+    background: linear-gradient(to bottom, #B80000 0, #660000 100%);
     text-shadow: 0px 0px 10px #dd3400;
 }
 /*
@@ -335,6 +339,40 @@ BREADCUMB
 .breadcrumb {
     background: none;
     border-radius: 0;
+    margin-bottom: 0px;
+}
+/*
+====================================
+ALERTS
+====================================  */
+
+.alert-success {
+    /*
+    border-color: #43a543;
+    background-color: #5ebd5e;
+    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
+    background-size: 20px 20px;
+    color: #fff;
+    border-radius: 2px;
+    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px;
+    font-size: 13px;
+*/
+    font-weight: normal;
+    border-width: 0;
+    border-radius: 0;
+    border-color: #8ac38b;
+    color: #356635;
+    background: #cde0c4;
+    border-left-color: rgb(138, 195, 139);
+    border-left-style: solid;
+    border-left-width: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+.alert-success h1 {
+    color: #356635;
+    border: 0;
+    margin: 0;
 }
 /*
 ====================================
@@ -420,7 +458,6 @@ SHOP
     #shop-cart {
         text-align: center;
     }
-
 }
 @media (min-width: 768px) {
     #shop-cart h2 {
@@ -431,8 +468,8 @@ SHOP
     padding: 5px 20px;
 }
 #shop-cart #btn-submit {
-        margin-top: 20px;
-    }
+    margin-top: 20px;
+}
 #shop-cart .img-thumbnail {
     background: none;
     border: none;

@@ -6,8 +6,20 @@ var PANDOX = PANDOX || {};
 PANDOX.SYSTEM = function () {
 
     var init = function () {
-        isAUthenticated();
+        processAuth();
         //        analytics();
+    };
+
+    var forceAuthentication = function (callback) {
+        console.log("OPA");
+        if (!isAuthenticated()) {
+            var href = window.location.href;
+            window.location.href = "/login?redir=" + href;
+        } else {
+            callback();
+        };
+
+
     };
 
 
@@ -29,14 +41,22 @@ PANDOX.SYSTEM = function () {
         ga('send', 'pageview');
     };
 
-
-    var isAUthenticated = function () {
-
+    var isAuthenticated = function () {
         var token = $.cookie("X-WOMU-Auth");
 
 
 
         if (!PANDOX.UTIL.isBlank(token)) {
+            return true;
+        };
+        return false;
+
+    };
+
+
+    var processAuth = function () {
+
+        if (isAuthenticated()) {
 
             var cache = localStorage.getItem("X-WOMU-account");
             if (cache !== null) {
@@ -58,6 +78,7 @@ PANDOX.SYSTEM = function () {
                     if (account) {
                         localStorage.setItem("X-WOMU-account", JSON.stringify(account));
                         PANDOX.USER.loadApiHeroes(account);
+                        PANDOX.USER.loadCredits(account);
                     } else {
                         clearCookie();
                     }
@@ -76,6 +97,8 @@ PANDOX.SYSTEM = function () {
         $(".account-login").html(account.login);
         $("#menu-avatar").show();
         $("#menu-login").hide();
+        $("#credits").show();
+        $(".account-credits").html($.number(account.credits, 0, ',', '.'));
 
     };
 
@@ -104,6 +127,14 @@ PANDOX.SYSTEM = function () {
                     localStorage.setItem("X-WOMU-account", JSON.stringify(account));
                     window.location.assign("/conta");
 
+
+                    var redir = PANDOX.UTIL.getUrlParam("redir");
+                    console.log("redir", redir);
+                    if (redir) {
+                        window.location.replace(redir);
+                    };
+
+
                 } else {
                     clearCookie();
                 }
@@ -118,7 +149,9 @@ PANDOX.SYSTEM = function () {
     return {
         init: init,
         createAuthCookie: createAuthCookie,
-        clearCookie: clearCookie
+        clearCookie: clearCookie,
+        forceAuthentication: forceAuthentication,
+        loadAccount: loadAccount
     }
 
 }();
@@ -236,6 +269,16 @@ PANDOX.USER = function () {
         });
     };
 
+
+    var getAccount = function () {
+        $("#heroes").html("");
+        $.each(heroes, function (i, hero) {
+            $("#heroes").append(
+                $('<li class="list-group-item">').append('<a href="#">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span></a>'));
+
+        });
+    };
+
     return {
         init: init,
         loadApiHeroes: loadApiHeroes,
@@ -288,11 +331,24 @@ PANDOX.UTIL = function () {
         return string.indexOf(search) != -1;
     };
 
+    function getUrlParam(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+    };
+
     return {
         init: init,
         hasMinimum: hasMinimum,
         isBlank: isBlank,
-        contains: contains
+        contains: contains,
+        getUrlParam: getUrlParam
+
     }
 
 }();
@@ -308,7 +364,79 @@ PANDOX.SHOP = function () {
         $("#shop-cart").hide();
         bindShopItem();
         bindBackBtn();
-        //        bindVIPBtn();
+        bindConfirmationBtn();
+        loadRevision();
+    };
+
+    var loadRevision = function () {
+
+        var url = window.location.href;
+        var getURL = url.split("?")[0];
+
+        if (getURL.indexOf("/shop/checkout") > -1) {
+            // Show WORKING
+            //            function working(){
+            //                $("#shop-working").html('Trabalhando...');
+            //            };
+            //
+            //            working();
+            function onAuthenticated() {
+                var cache = localStorage.getItem("X-WOMU-account");
+                cache = {
+                    login: "teste2",
+                    password: null,
+                    name: "matheus",
+                    credits: 5000,
+                    email: "teste@teste.com",
+                    roles: []
+                };
+                if (cache !== null) {
+                    console.log(cache);
+                    //                    account = JSON.parse(cache);
+                    account = cache;
+                    PANDOX.SYSTEM.loadAccount(account);
+                    $(".shop-rev-acc-login").html(account.login);
+                    $(".shop-rev-acc-email").html(account.email);
+
+
+                    var id = PANDOX.UTIL.getUrlParam('id');
+                    $.get("/shop/includes/vip/" + id + ".json", function (item) {
+                        var value = item.value
+                        var credits = account.credits;
+                        var creditsRemaining = credits - value;
+
+
+                        creditsRemaining = $.number(creditsRemaining, 0, ',', '.');
+                        credits = $.number(credits, 0, ',', '.');
+                        value = $.number(value, 0, ',', '.');
+
+                        $(".shop-rev-item-desc").html(item.title);
+                        $(".shop-rev-item-qtd").html(1);
+                        $(".shop-rev-item-value").html(value);
+
+                        $("#shop-working").hide();
+                        $("#shop-revision").fadeIn();
+
+
+                        $(".shop-rev-acc-credits").html(credits);
+
+
+
+
+                        $(".shop-rev-credits-remaing").html(creditsRemaining);
+
+                    })
+
+
+                }
+            };
+
+            //            PANDOX.SYSTEM.forceAuthentication(onAuthenticated);
+            onAuthenticated();
+
+
+
+        }
     };
 
     var getSwords = function () {
@@ -357,9 +485,20 @@ PANDOX.SHOP = function () {
         })
     };
 
+
+    var bindConfirmationBtn = function () {
+        $("#shop-confirmation-btn").click(function (event) {
+            event.preventDefault();
+
+            $("#shop-confirmation-btn").hide();
+            $("#loading").show();
+            $("#shop-alert-success").fadeIn();
+
+        })
+    };
+
     var bindShopItem = function () {
         $(".shop-item").click(function (event) {
-            event.preventDefault();
 
             var itemId = $(this).attr('x-item-id');
             console.log(itemId);

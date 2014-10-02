@@ -1,5 +1,7 @@
 {
+    "id": 3,
     "title": "Vip 60 dias",
     "description": "Vip",
-    "value": 1700
+    "value": 1700,
+    "checkoutUrl": "/shop/checkout?id=3"
 }
