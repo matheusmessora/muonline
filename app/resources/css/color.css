@@ -31,6 +31,9 @@ h6 {
 strong {
     color: #AD835A;
 }
+p {
+    margin: 0 0 20px;
+}
 .table>tbody>tr>th,
 .table>tfoot>tr>th,
 .table>tbody>tr>td,
@@ -69,6 +72,7 @@ a {
 a:hover,
 a:focus {
     color: #F3E6D0;
+    text-decoration: underline;
 }
 /*
 ====================================
@@ -123,7 +127,7 @@ TOP MENU
     border-bottom: 2px solid #4c0b05;
     border-top: 0;
 }
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .navbar-default .navbar-nav>li>a {
         border-bottom: 0;
     }
@@ -133,6 +137,8 @@ TOP MENU
     color: #F3E6D0;
     border-bottom: 2px solid #e60101;
     text-shadow: 0px 0px 10px #F3E6D0;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
     border-top: 0;
 }
 .navbar-default .navbar-nav>.active>a,
@@ -145,7 +151,7 @@ TOP MENU
     text-shadow: 0px 0px 10px #87c7eb;
     border-top: 0;
 }
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .navbar-default .navbar-nav>li>a:focus,
     .navbar-default .navbar-nav>li>a:hover,
     .navbar-default .navbar-nav>.active>a,
@@ -158,7 +164,23 @@ TOP MENU
 .navbar-default .navbar-avatar>.active>a,
 .navbar-default .navbar-avatar>.active>a:hover,
 .navbar-default .navbar-avatar>.active>a:focus {
-    background: #191814;
+    background: #000;
+}
+/* LoginFIX*/
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbar-default .navbar-nav>li>a,
+    .navbar-default .navbar-nav>li>a:hover,
+    .navbar-default .navbar-nav>li>a:focus,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+        border-left: 0px;
+        border-right: 0px;
+    }
+    #menu-login>a {
+        border-left-width: 0px;
+        border-right-width: 1px;
+    }
 }
 /*
 ====================================
@@ -507,4 +529,8 @@ SHOP
     border-color: #28241d
         border-color: #e60101;
 */
+}
+.signature {
+    font-style: italic;
+    margin: 0 0 5px;
 }
