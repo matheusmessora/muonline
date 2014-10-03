@@ -234,7 +234,7 @@ a.thumbnail.active {
 }
 .img-thumbnail {
     background-color: #300E0D;
-    border: 1px solid #300E0D;
+    border: 0;
     padding: 0px;
 }
 .thumbnail>h3 {
