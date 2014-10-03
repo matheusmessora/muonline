@@ -9,6 +9,8 @@ PANDOX.SYSTEM = function () {
         processAuth();
         loadServerInfo();
         //        analytics();
+
+        $("#tt-status").tooltip();
     };
 
     var forceAuthentication = function (callback) {
@@ -60,9 +62,9 @@ PANDOX.SYSTEM = function () {
                 $(".qtd-account").html(server.qtdAccount);
                 $(".qtd-chars").html(server.qtdChars);
                 if (server.serverUp) {
-                    $(".srver-status").html("Online");
+                    $(".server-status").html("Online");
                 } else {
-                    $(".srver-status").html("Offline");
+                    $(".server-status").html("Offline");
                 }
 
 
