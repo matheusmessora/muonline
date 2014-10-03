@@ -4,7 +4,7 @@ html {
 }
 body {
     /*    background: url("http://belleviewchristian.com/wp-content/uploads/2014/03/blue-wallpaper-background-texture-checkbox-1024x640.jpg");*/
-/*    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGElEQVQIW2NkYGCQBOLnQAwGjDAG0QKSAD1rAR6LthyCAAAAAElFTkSuQmCC'), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAWSjEh8SSD7OUwAzAFJggTgHJAAAEkuAx5OdRJCAAAAAElFTkSuQmCC') #000000;*/
+    /*    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGElEQVQIW2NkYGCQBOLnQAwGjDAG0QKSAD1rAR6LthyCAAAAAElFTkSuQmCC'), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAWSjEh8SSD7OUwAzAFJggTgHJAAAEkuAx5OdRJCAAAAAElFTkSuQmCC') #000000;*/
     font: normal 13px/1.2'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;
     margin-bottom: 100px;
 }
@@ -37,22 +37,24 @@ td,
     margin-right: 20px;
 }
 .colored {
-    color: #3aaafe  ;
+    color: #3aaafe;
 }
 .carousel-indicators-holder {
     padding-left: 0;
     background: #222;
 }
-.carousel-indicators {
-    position: inherit;
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-    text-align: left;
-    bottom: 0px;
-    left: 0%;
-    z-index: 1;
-    width: 100%;
+@media (min-width: 992px) {
+    .carousel-indicators {
+        position: inherit;
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        text-align: left;
+        bottom: 0px;
+        left: 0%;
+        z-index: 1;
+        width: 100%;
+    }
 }
 .container .jumbotron {
     border-radius: 0px;
@@ -144,12 +146,11 @@ td,
     margin-top: 20px;
 }
 /* JUMBOCRUN */
+
 .container .skybar {
     height: 100px;
-
     padding-top: 30px;
 }
-
 .skybar .text-bottom {
     padding-top: 40px;
 }
@@ -166,11 +167,11 @@ img.active {
 .table-guide tr {
     border-bottom: 1px solid #464545;
 }
-
 /*
 ====================================
         MISC
 ====================================  */
+
 .nopadding {
-   padding: 0 !important;
+    padding: 0 !important;
 }

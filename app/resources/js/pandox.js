@@ -63,6 +63,7 @@ PANDOX.SYSTEM = function () {
                 $(".qtd-chars").html(server.qtdChars);
                 if (server.serverUp) {
                     $(".server-status").html("Online");
+                    $(".server-status").addClass("text-success");
                 } else {
                     $(".server-status").html("Offline");
                 }
@@ -97,6 +98,7 @@ PANDOX.SYSTEM = function () {
                     if (account) {
                         localStorage.setItem("X-WOMU-account", JSON.stringify(account));
                         PANDOX.USER.loadApiHeroes(account);
+                        removeRedirCookie();
                     } else {
                         clearCookie();
                     }
