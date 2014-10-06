@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Conta | World Of MU</title>
+    <!--# include file="/includes/head.html" -->
+</head>
+
+<body>
+    <!--# include file="/includes/menu.html" -->
+
+    <!-- JUMB CRUMS -->
+    <div class="container">
+        <div class="row skybar skybar-demon">
+            <div class="col-lg-12">
+                <h2>Verificação de E-mail</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- SITE CONTENT -->
+    <div class="container content">
+
+        <!-- MAINBAR -->
+        <div class="col-lg-12 col-md-12">
+            <div class="row separator">
+
+                <div id="processing">
+                    <h1>Processando... <img class="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" /> </h1>
+                    </p>
+                </div>
+
+                <div id="emailConfirmed" style="display:none;">
+                    <div class="alert alert-success" role="alert">
+                        <h1>E-mail verificado com sucesso!</h1>
+                        <p>O seu endereço de e-mail registrado em World of MU foi verificado.</p>
+                    </div>
+
+                    <p> <a href="/login" class="btn btn-default btn-lg btn-info"><i class="glyphicon glyphicon-log-in"></i> Acessar minha conta</a>
+                    </p>
+                </div>
+
+                <div id="emailErrror" style="display:none;">
+                    <div class="alert alert-danger" role="alert">
+                        <h1>Falha ao confirmar e-mail!</h1>
+                        <p>Não foi possível confirmar o e-mail.</p>
+                    </div>
+
+                    <p>Um erro ocorreu ao verificar seu endereço de e-mail, possivelmente por um dos seguintes problemas:
+                        <ul>
+                            <li>Este endereço de e-mail já foi verificado anteriormente.</li>
+                            <li>O link que você clickou está expirado ou inválido.</li>
+                            <li>Ocorreu falha em nossos serviços. Por favor tente novamente, pois pode ter sido um problema temporário.</li>
+                        </ul>
+                    </p>
+
+
+                </div>
+
+            </div>
+            <div class="row">
+                <p>Precisa de ajuda? Acesse nossa página de suporte <a href="/suporte" target="_blank">clicando aqui</a>.</p>
+                </p>
+            </div>
+
+
+        </div>
+
+
+
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-3  col-md-3 sidebar">
+
+        </div>
+
+    </div>
+
+
+    <!--# include file="/includes/footer.html" -->
+
+    <script>
+        PANDOX.USER.confirmEmail();
+    </script>
+</body>
+
+</html>

@@ -128,7 +128,9 @@ PANDOX.SYSTEM = function () {
         $("#menu-login").show();
         $(".account-login").html("");
 
-        $.removeCookie("X-WOMU-Auth", {path: "/"});
+        $.removeCookie("X-WOMU-Auth", {
+            path: "/"
+        });
         localStorage.removeItem("X-WOMU-account");
         localStorage.removeItem("X-WOMU-heroes");
 
@@ -145,7 +147,9 @@ PANDOX.SYSTEM = function () {
 
 
     var removeRedirCookie = function (url) {
-        $.removeCookie("X-WOMU-Redir", {path: "/"});
+        $.removeCookie("X-WOMU-Redir", {
+            path: "/"
+        });
     };
 
     var createAuthCookie = function (token) {
@@ -287,8 +291,34 @@ PANDOX.USER = function () {
 
     };
 
-    var loadApiHeroes = function (account) {
+    var confirmEmail = function () {
+        var token = PANDOX.UTIL.getUrlParam("token");
+        if (!PANDOX.UTIL.isBlank(token)) {
+            var request = $.ajax({
+                url: "/api/email/confirmation?token=" + token,
+                type: "PUT",
+                contentType: "application/json"
+            });
 
+            request.done(function (data, textStatus, jqXHR) {
+
+                $("#emailConfirmed").show();
+                $("#processing").hide();
+
+            });
+
+            request.fail(function (promise) {
+
+                $("#emailErrror").show();
+                $("#processing").hide();
+            });
+        } else {
+            $("#emailErrror").show();
+            $("#processing").hide();
+        }
+    };
+
+    var loadApiHeroes = function (account) {
         $.get("/api/me/hero").done(function (heroes) {
             console.log("HEROEES", heroes);
             localStorage.setItem("X-WOMU-heroes", JSON.stringify(heroes));
@@ -305,7 +335,6 @@ PANDOX.USER = function () {
         });
     };
 
-
     var getAccount = function () {
         $("#heroes").html("");
         $.each(heroes, function (i, hero) {
@@ -318,7 +347,8 @@ PANDOX.USER = function () {
     return {
         init: init,
         loadApiHeroes: loadApiHeroes,
-        renderHeroes: renderHeroes
+        renderHeroes: renderHeroes,
+        confirmEmail: confirmEmail
     };
 }();
 

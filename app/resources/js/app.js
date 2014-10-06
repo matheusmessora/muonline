@@ -27,13 +27,13 @@ $(function () {
     } else {
         pathname.replace("#", "");
 
-        if(PANDOX.UTIL.contains(pathname, "conta")){
+        if (PANDOX.UTIL.contains(pathname, "conta")) {
             $("#menu-avatar").addClass("active");
         }
-        if(PANDOX.UTIL.contains(pathname, "guia")){
+        if (PANDOX.UTIL.contains(pathname, "guia")) {
             $("#menu-guia").addClass("active");
         }
-        if(PANDOX.UTIL.contains(pathname, "shop")){
+        if (PANDOX.UTIL.contains(pathname, "shop")) {
             $("#menu-shop").addClass("active");
         }
 
@@ -44,7 +44,7 @@ $(function () {
 
 
     // FORM
-    var inputs = ["login", "password", "passwordconfirm", "email"];
+    var inputs = ["check", "name", "login", "password", "passwordconfirm", "email"];
     $.each(inputs, function (i, input) {
         $("#i-" + input).focus(function () {
             clearInput(input);
@@ -63,6 +63,8 @@ $(function () {
         });
 
         var hasError = false;
+        clearInput("check");
+        clearInput("name");
         clearInput("login");
         clearInput("pass");
         clearInput("passconfirm");
@@ -93,6 +95,18 @@ $(function () {
             PANDOX.FORM.markErrorOnField("email");
         }
 
+        var name = $("#i-name").val();
+        if (PANDOX.UTIL.isBlank(name)) {
+            hasError = true;
+            PANDOX.FORM.markErrorOnField("name");
+        }
+
+        var isChecked = $("#i-check").is(":checked");
+        if (!isChecked) {
+            hasError = true;
+            PANDOX.FORM.markErrorOnField("check");
+        }
+
         if (hasError) {
             $("#loading").hide();
             $("#btn-submit").show();
@@ -101,8 +115,8 @@ $(function () {
             var json = {
                 login: loginInput,
                 password: passwordValue,
-                name: "matheus",
-                email: "a@a.com"
+                name: name,
+                email: email
             };
 
             var request = $.ajax({
