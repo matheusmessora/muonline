@@ -571,11 +571,6 @@ SHOP
     text-transform: uppercase;
     font-size: 18px;
 }
-.footer h4 {
-    color: #ad835a;
-    text-transform: uppercase;
-    font-size: 18px;
-}
 .footer a:hover,
 .footer a:focus {
     color: #FFF;
