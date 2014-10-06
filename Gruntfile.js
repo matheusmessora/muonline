@@ -28,14 +28,14 @@ module.exports = function (grunt) {
         },
 
         useminPrepare: {
-            src: ['app/includes/head.html', 'dist/includes/head.html'],
+            src: ['app/includes/footer.html', 'dist/includes/footer.html'],
             options: {
                 dest: 'dist'
             }
         },
 
         usemin: {
-            html: 'dist/includes/head.html',
+            html: 'dist/includes/footer.html',
             options: {
                 assetsDirs: ['dist']
             }
