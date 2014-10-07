@@ -37,7 +37,6 @@ $(function () {
             $("#menu-shop").addClass("active");
         }
 
-        console.log(pathname);
         $("a[href='" + pathname + "']").parent().addClass('active');
     }
 
@@ -74,7 +73,6 @@ $(function () {
             hasError = true;
             PANDOX.FORM.markErrorOnField("login");
         } else if (loginExist(loginInput)) {
-            console.log("exists", loginInput);
             hasError = true;
             PANDOX.FORM.markErrorOnField("login");
         }
@@ -127,8 +125,6 @@ $(function () {
             });
 
             request.done(function (data, textStatus, jqXHR) {
-
-                console.log(data);
 
                 $("#account-template").hide().loadTemplate("/conta/sucesso.html", data).fadeIn(1500);
             });

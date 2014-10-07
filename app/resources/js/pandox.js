@@ -8,16 +8,14 @@ PANDOX.SYSTEM = function () {
     var init = function () {
         processAuth();
         loadServerInfo();
-        //        analytics();
+        analytics();
 
         $("#tt-status").tooltip();
     };
 
     var forceAuthentication = function (callback) {
-        console.log("is", isAuthenticated());
         if (!isAuthenticated()) {
             var href = window.location.href;
-            console.log("href", href);
             createRedirCookie(href);
 
         } else {
@@ -43,6 +41,7 @@ PANDOX.SYSTEM = function () {
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-47755345-2', 'auto');
+        ga('require', 'displayfeatures');
         ga('send', 'pageview');
     };
 
@@ -137,7 +136,6 @@ PANDOX.SYSTEM = function () {
     };
 
     var createRedirCookie = function (url, callback) {
-        console.log("Criando cookie", "" + url + "");
         $.cookie("X-WOMU-Redir", url, {
             path: "/",
             expires: 1
@@ -161,14 +159,12 @@ PANDOX.SYSTEM = function () {
         var request = $.get("/api/me", function (account) {
 
                 if (account) {
-                    console.log("tem conta", account);
                     localStorage.setItem("X-WOMU-account", JSON.stringify(account));
                     window.location.assign("/conta");
 
 
                     var redir = $.cookie("X-WOMU-Redir");
 
-                    console.log("redir", redir);
                     if (!PANDOX.UTIL.isBlank(redir)) {
                         removeRedirCookie();
                         window.location.replace(redir);
@@ -203,7 +199,6 @@ PANDOX.SYSTEM = function () {
 PANDOX.LOGIN = function () {
 
     var init = function () {
-        console.log("PANDOX.LOGIN.init()");
         bindLogout();
 
 
@@ -222,7 +217,6 @@ PANDOX.LOGIN = function () {
 
     var validateForm = function () {
 
-        console.log("validateForm");
 
         var hasError = false;
 
@@ -258,7 +252,6 @@ PANDOX.LOGIN = function () {
             });
 
             request.fail(function (promise) {
-                console.log("promise:", promise);
                 var result = promise.responseJSON;
 
                 $.each(result, function (i, erro) {
@@ -320,7 +313,6 @@ PANDOX.USER = function () {
 
     var loadApiHeroes = function (account) {
         $.get("/api/me/hero").done(function (heroes) {
-            console.log("HEROEES", heroes);
             localStorage.setItem("X-WOMU-heroes", JSON.stringify(heroes));
             renderHeroes(heroes);
         });
@@ -426,7 +418,6 @@ PANDOX.UTIL = function () {
 PANDOX.SHOP = function () {
 
     var init = function () {
-        console.log("PANDOX.SHOP.init()");
         $("#shop-cart").hide();
         bindShopItem();
         bindBackBtn();
@@ -549,7 +540,6 @@ PANDOX.SHOP = function () {
             event.preventDefault();
 
             var itemId = $(this).attr('x-item-id');
-            console.log(itemId);
 
             $("#shop-display").fadeIn();
 
@@ -574,7 +564,6 @@ PANDOX.SHOP = function () {
         $(".shop-item").click(function (event) {
 
             var itemId = $(this).attr('x-item-id');
-            console.log(itemId);
 
             $("#shop-display").hide();
 
