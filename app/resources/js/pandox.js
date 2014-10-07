@@ -43,6 +43,7 @@ PANDOX.SYSTEM = function () {
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-47755345-2', 'auto');
+        ga('require', 'displayfeatures');
         ga('send', 'pageview');
     };
 
