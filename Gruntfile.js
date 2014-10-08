@@ -100,9 +100,21 @@ module.exports = function (grunt) {
             }
         },
 
+        // STRIP CONSOLE.log
         strip: {
             main: {
-                src: 'dist/resources/js/*.min.js'
+                src: 'dist/resources/**/*.js',
+                options: {
+                    inline: true
+                }
+            }
+        },
+
+        concat: {
+            analytics: {
+                 src: ['dist/includes/analytics.html', 'dist/includes/head.html'],
+                dest: 'dist/includes/head.html'
+
             }
         }
     });
@@ -117,7 +129,12 @@ module.exports = function (grunt) {
         'copy:dist',
         'usemin',
         'htmlmin:dist',
-        'strip:main'
-        //'clean:trash'
+        'strip:main',
+        'clean:trash'
+    ]);
+
+    grunt.registerTask('delivery', [
+        'dist',
+        'concat:analytics'
     ]);
 };
