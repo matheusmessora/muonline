@@ -8,7 +8,7 @@ PANDOX.SYSTEM = function () {
     var init = function () {
         processAuth();
         loadServerInfo();
-//        analytics();
+        analytics();
 
         $("#tt-status").tooltip();
     };
