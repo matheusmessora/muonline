@@ -13,6 +13,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-strip');
 
+
     // Define the configuration for all the tasks
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
