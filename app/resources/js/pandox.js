@@ -8,7 +8,7 @@ PANDOX.SYSTEM = function () {
     var init = function () {
         processAuth();
         loadServerInfo();
-        analytics();
+//        analytics();
 
         $("#tt-status").tooltip();
     };
@@ -64,7 +64,8 @@ PANDOX.SYSTEM = function () {
                     $(".server-status").html("Online");
                     $(".server-status").addClass("text-success");
                 } else {
-                    $(".server-status").html("Offline");
+                    $(".server-status").html("Em testes" + ' <i class="glyphicon glyphicon-question-sign colored">');
+                    $(".server-status").addClass("text-info");
                 }
 
 
