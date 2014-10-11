@@ -395,13 +395,20 @@ ALERTS
     margin: 0;
     font-weight: bold;
 }
+.alert h3 {
+    border: 0;
+    margin: 0;
+    font-weight: bold;
+}
 .alert-success {
     border-color: #8ac38b;
     color: #356635;
     background: #cde0c4;
     border-left-color: rgb(138, 195, 139);
 }
-.alert-success h1 {
+.alert-success h1,
+.alert-success h3
+{
     color: #356635;
 }
 .alert-danger {
@@ -409,7 +416,8 @@ ALERTS
     color: #fff;
     background: #c26565;
 }
-.alert-danger h1 {
+.alert-danger h1,
+.alert-danger h3 {
     color: #fff;
 }
 .alert a {
@@ -450,7 +458,9 @@ MISc
 ====================================
            INSIGNIAS
 ====================================  */
-
+#profile-login {
+    text-transform: uppercase;
+}
 #profile-level-info {
     display: inline-block;
     font-size: 16px;

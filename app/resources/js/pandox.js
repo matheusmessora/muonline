@@ -103,12 +103,12 @@ PANDOX.SYSTEM = function () {
         renderEmailVerification(account);
     };
 
-    var renderEmailVerification = function (account){
+    var renderEmailVerification = function (account) {
 
-        if(account.mailVerified === "0"){
+        if (account.mailVerified === "0") {
             $("#profile-email").html('<span id="tt-email" data-toggle="tooltip" title="Seu e-mail ainda não foi verificado!">' + account.email + ' <i class="glyphicon glyphicon-exclamation-sign text-alert"></i></span>');
             $("#tt-email").tooltip();
-        }else {
+        } else {
             $("#profile-email").html('<span>' + account.email + ' <i class="glyphicon glyphicon-ok text-success"></i></span>');
         }
     };
@@ -269,29 +269,100 @@ PANDOX.LOGIN = function () {
  *======================================================================================================*/
 PANDOX.PROFILE = function () {
 
-    var init = function () {
-        $.get("/api/profile").done(function (profile) {
-            renderProfilePage(profile);
-        });
+    var finished = function () {
+        $("#profile-loading").hide();
+        $("#profile-holder").fadeIn();
+    };
 
-        $.get("/api/badge").done(function (badges) {
-            renderBadges(badges);
+    var init = function () {
+
+        function onAuthenticated() {
+            $.get("/api/profile").done(function (profile) {
+                renderProfilePage(profile);
+
+                $.get("/api/badge").done(function (badges) {
+                    renderBadges(badges);
+
+                    loadEnquete(finished);
+                });
+            });
+        }
+
+        PANDOX.SYSTEM.forceAuthentication(onAuthenticated);
+
+
+    };
+
+    var loadProfile = function () {
+        var href = window.location.pathname;
+        var profileID = href.substr(href.lastIndexOf('/') + 1);
+
+        var url = "/api/profile/" + profileID;
+
+        $.get(url).done(function (profile) {
+            renderProfilePage(profile);
+
+            $.get("/api/badge").done(function (badges) {
+                renderBadges(badges);
+
+                finished();
+            });
         });
     };
 
-    var renderBadges = function(badges){
-        console.log(badges);
-        console.log(badges.length);
+    var renderBadges = function (badges) {
         $("#badges-quantity").html(badges.length);
 
-//         $.each(badges, function (i, badge) {
-//            $("#heroes").append(
-//                $('<li class="list-group-item">').append('<a href="#">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span></a>'));
-//
-//        });
+        $.each(badges, function (i, badge) {
+            $("#badge-" + badge.id + "-name").html(badge.name);
+            $("#badge-" + badge.id + "-description").html(badge.description);
+        });
     };
 
-    var renderProfilePage = function(profile){
+    var loadEnquete = function (callback) {
+
+        function bindAnswerButton() {
+            $("#enquete-submit").click(function (event) {
+                event.preventDefault();
+
+                $(this).hide();
+                $("#loading").show();
+
+                var id = $("#enquete-div").attr('data-enquete-id');
+
+                var answer = $('input[name=enqueteOptions]:checked').val();
+
+                var url = "/api/enquete/" + id + "/answer/" + answer;
+                $.post(url, function () {
+                    $("#enquete-holder").hide();
+                    $("#enquete-alert-success").show();
+                });
+            })
+
+        };
+
+        $.get("/api/enquete?status=1&answerable=true").done(function (enquetes, textStatus, jqXHR) {
+            if (jqXHR.status == "200") {
+                $("#enquete-div").show();
+                $("#enquete-question").html(enquetes[0].question);
+                $("#enquete-answer-1").after(enquetes[0].answer1);
+                $("#enquete-answer-2").after(enquetes[0].answer2);
+                $("#enquete-answer-3").after(enquetes[0].answer3);
+                $("#enquete-answer-4").after(enquetes[0].answer4);
+                $("#enquete-div").attr('data-enquete-id', enquetes[0].id);
+
+                bindAnswerButton();
+                callback();
+            } else {
+                callback();
+            }
+
+        });
+
+
+    };
+
+    var renderProfilePage = function (profile) {
         $("#profile-signup-date").html(new Date(profile.signupDate).format("dd/mm/yyyy"));
 
 
@@ -300,17 +371,28 @@ PANDOX.PROFILE = function () {
         $("#profile-exp-info").html(profile.exp + "/100");
         $("#profile-badges-quantity").html(profile.qtdBadges);
 
-        if(profile.qtdBadges > 0){
-            $("#badge-1-img").attr('src', '/resources/img/badges/1-on.png');
-        }else {
-            $("#badge-1-img").attr('src', '/resources/img/badges/1-off.png');
-        }
+        var publicURL = window.location.origin + "/perfil/" + profile.login;
+        $("#profile-public-url").html(publicURL);
+        $("#profile-public-url").attr('src', publicURL);
+        $("#profile-login").html(profile.login);
 
+        if (profile.qtdBadges > 0) {
+            $.each(profile.badges, function (i, badge) {
+                var img = "#badge-" + badge.badgeId + "-img";
+                $(img).attr("src", '/resources/img/badges/' + badge.badgeId + '-on.png?v=22');
+                //                $(img).fadeOut(500, function () {
+                //
+                //                    $(img).show();
+                //                });
+            });
+
+        }
     };
 
 
     return {
-        init: init
+        init: init,
+        loadProfile: loadProfile
     };
 
 }();

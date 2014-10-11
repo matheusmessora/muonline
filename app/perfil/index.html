@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Conta - World Of MU</title>
+    <!--# include file="/includes/head.html" -->
+    <script>
+        PANDOX.PROFILE.loadProfile();
+    </script>
+</head>
+
+<body>
+    <!--# include file="/includes/menu.html" -->
+
+    <!-- JUMB CRUMS -->
+    <div class="container">
+        <div class="row  skybar skybar-demon">
+            <div class="col-xs-9">
+                <h2 class="account-login"></h2>
+            </div>
+            <!--# include file="/includes/credits.html" -->
+        </div>
+    </div>
+
+    <!-- SITE CONTENT -->
+    <div class="container content">
+
+        <!-- MAINBAR -->
+        <div class="col-lg-9" id="profile-loading">
+            <h1>Processando... <img class="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" /> </h1>
+        </div>
+        <div class="col-lg-9" id="profile-holder" style="display:none;">
+            <div class="row separator">
+
+                <div class="col-xs-12 col-sm-6">
+                    <h1 id="profile-login"></h1>
+                    <h5>Data de criação</h5>
+                    <p id="profile-signup-date"></p>
+
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <h1>Perfil</h1>
+                    <h5>Nível</h5>
+                    <p><span id="profile-level-info"><span id="profile-level">1</span></span> <span class="profile-exp-info">0/100</span> XP</p>
+
+                    <h5>Insígnias</h5>
+                    <p><span id="profile-badges-quantity">0</span> de <span id="badges-quantity">0</span> insígnias conquistadas</p>
+
+
+                    <h5>Perfil público</h5>
+                    <p><a id="profile-public-url" href="/perfil/mmmkiller" target="_blank"></a></p>
+<!--                    <p><a href="/perfil/mmmkiller">www.worldofmu.com.br/perfil/mmmkiller</a>-->
+                    </p>
+
+
+
+                </div>
+
+            </div>
+            <div class="row separator">
+
+                <div class="col-xs-12">
+                    <h1>Insígnias</h1>
+
+                    <h4>Insígnias</h4>
+                    <!--# include file="/views/badges.html" -->
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-3  col-md-3 sidebar">
+            <!--# include file="/conta/includes/navbar.html" -->
+
+        </div>
+
+
+    </div>
+
+    <!--# include file="/includes/footer.html" -->
+
+
+</body>
+
+</html>
+
