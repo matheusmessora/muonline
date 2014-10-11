@@ -121,7 +121,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('dist', [
-        'clean',
+        'clean:build',
         'useminPrepare',
         'concat:generated',
         'cssmin:generated',
