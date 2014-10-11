@@ -33,31 +33,32 @@
         <div class="col-lg-9">
             <div class="row separator">
 
-                <h1>Enquete</h1>
-                <h4>O que achou do nosso site?</h4>
-                <form id="enqueteForm" class="form-horizontal">
-                    <fieldset>
+                <div class="col-xs-12">
+                    <h1>Enquete</h1>
+                    <h4>O que achou do nosso site?</h4>
+                    <form id="enqueteForm" class="form-horizontal">
+                        <fieldset>
 
-                        <div class="radio">
-                            <label class="checkbox-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Ruim
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Regular
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Bom
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Excelente
-                            </label>
-                            <img id="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" style="display: none;" />
-                            <button id="btn-submit" type="submit" class="btn btn-info">Enviar</button>
-                        </div>
+                            <div class="radio">
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Ruim
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Regular
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Bom
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Excelente
+                                </label>
+                                <img id="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" style="display: none;" />
+                                <button id="btn-submit" type="submit" class="btn btn-info">Enviar</button>
+                            </div>
 
-                    </fieldset>
-                </form>
-
+                        </fieldset>
+                    </form>
+                </div>
             </div>
 
             <div class="row separator">
@@ -66,6 +67,9 @@
                     <h1>Detalhes da conta</h1>
                     <h5>Nome</h5>
                     <p>Matheus</p>
+
+                    <h5>Data de criação</h5>
+                    <p id="profile-signup-date"></p>
 
                     <h5>E-mail</h5>
                     <p><span id="tt-email" data-toggle="tooltip" title="Seu e-mail ainda não foi verificado!">matheusmessoravpn@gmail.com <i class="glyphicon glyphicon-exclamation-sign text-alert"></i></span> [Verificar]</p>
@@ -76,10 +80,15 @@
                 <div class="col-xs-12 col-sm-6">
                     <h1>Perfil</h1>
                     <h5>Nível</h5>
-                    <p><span class="friendPlayerLevel lvl_0"><span class="friendPlayerLevelNum">10</span></span> 55/100 XP</p>
+                    <p><span class="friendPlayerLevel lvl_0"><span class="friendPlayerLevelNum">10</span></span>55/100 XP</p>
 
                     <h5>Insígnias</h5>
                     <p>0 de 100 insígnias conquistadas</p>
+
+                    <h5>Perfil público</h5>
+                    <p><a href="/perfil/mmmkiller">www.worldofmu.com.br/perfil/mmmkiller</a>
+                    </p>
+
 
                 </div>
 

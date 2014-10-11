@@ -6,6 +6,7 @@ $(function () {
     PANDOX.UTIL.init();
     PANDOX.LOGIN.init();
     PANDOX.USER.init();
+    PANDOX.PROFILE.init();
     PANDOX.SHOP.init();
 
 
@@ -80,7 +81,7 @@ $(function () {
 
         var passwordValue = $("#i-password").val();
         var passConfirm = $("#i-passwordconfirm").val();
-        if (PANDOX.UTIL.isBlank(passwordValue) || PANDOX.UTIL.isBlank(passConfirm) || !PANDOX.UTIL.hasMinimum(passwordValue, 5) || (passwordValue != passConfirm)) {
+        if (PANDOX.UTIL.isBlank(passwordValue) || PANDOX.UTIL.isBlank(passConfirm) || !PANDOX.UTIL.hasMinimum(passwordValue, 4) || (passwordValue != passConfirm)) {
             hasError = true;
             PANDOX.FORM.markErrorOnField("password");
             PANDOX.FORM.markErrorOnField("passwordconfirm");

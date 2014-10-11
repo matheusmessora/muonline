@@ -88,7 +88,6 @@ PANDOX.SYSTEM = function () {
                     clearCookie();
                 })
         } else {
-
             clearCookie();
         }
     };
@@ -254,7 +253,27 @@ PANDOX.LOGIN = function () {
     };
 
 }();
+/*=====================================================================================================
+ * Pandox USER Module
+ *======================================================================================================*/
+PANDOX.PROFILE = function () {
 
+    var init = function () {
+        $.get("/api/profile").done(function (profile) {
+            renderProfilePage(profile);
+        });
+    };
+
+    var renderProfilePage = function(profile){
+        $("#profile-signup-date").html(new Date(profile.signupDate).format("dd/mm/yyyy"));
+    };
+
+
+    return {
+        init: init
+    };
+
+}();
 
 /*=====================================================================================================
  * Pandox USER Module
@@ -363,6 +382,10 @@ PANDOX.UTIL = function () {
         return value.length >= size;
     };
 
+    var hasMaximum = function (value, size) {
+        return !value.length >= size;
+    };
+
     var isBlank = function (text) {
         return (!text || / ^ \s * $ /.test(text));
     };
@@ -385,6 +408,7 @@ PANDOX.UTIL = function () {
     return {
         init: init,
         hasMinimum: hasMinimum,
+        hasMaximum: hasMaximum,
         isBlank: isBlank,
         contains: contains,
         getUrlParam: getUrlParam
