@@ -10,6 +10,7 @@ PANDOX.SYSTEM = function () {
         loadServerInfo();
 
         $("#tt-status").tooltip();
+        $("#tt-email").tooltip();
     };
 
     var forceAuthentication = function (callback) {

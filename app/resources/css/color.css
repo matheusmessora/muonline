@@ -430,6 +430,10 @@ MISc
 .text-danger {
     color: #e60101;
 }
+
+.text-alert {
+    color: #fba412;
+}
 .text-info {
     color: #3aaafe;
 }
