@@ -10,7 +10,6 @@ PANDOX.SYSTEM = function () {
         loadServerInfo();
 
         $("#tt-status").tooltip();
-        $("#tt-email").tooltip();
     };
 
     var forceAuthentication = function (callback) {
@@ -99,7 +98,19 @@ PANDOX.SYSTEM = function () {
         $("#menu-login").hide();
         $("#credits").show();
         $(".account-credits").html($.number(account.credits, 0, ',', '.'));
+        $("#profile-name").html(account.name);
 
+        renderEmailVerification(account);
+    };
+
+    var renderEmailVerification = function (account){
+
+        if(account.mailVerified === "0"){
+            $("#profile-email").html('<span id="tt-email" data-toggle="tooltip" title="Seu e-mail ainda não foi verificado!">' + account.email + ' <i class="glyphicon glyphicon-exclamation-sign text-alert"></i></span>');
+            $("#tt-email").tooltip();
+        }else {
+            $("#profile-email").html('<span>' + account.email + ' <i class="glyphicon glyphicon-ok text-success"></i></span>');
+        }
     };
 
 
@@ -262,10 +273,39 @@ PANDOX.PROFILE = function () {
         $.get("/api/profile").done(function (profile) {
             renderProfilePage(profile);
         });
+
+        $.get("/api/badge").done(function (badges) {
+            renderBadges(badges);
+        });
+    };
+
+    var renderBadges = function(badges){
+        console.log(badges);
+        console.log(badges.length);
+        $("#badges-quantity").html(badges.length);
+
+//         $.each(badges, function (i, badge) {
+//            $("#heroes").append(
+//                $('<li class="list-group-item">').append('<a href="#">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span></a>'));
+//
+//        });
     };
 
     var renderProfilePage = function(profile){
         $("#profile-signup-date").html(new Date(profile.signupDate).format("dd/mm/yyyy"));
+
+
+        $("#profile-level").html(profile.level);
+        $("#profile-level-info").addClass("lvl_" + profile.level);
+        $("#profile-exp-info").html(profile.exp + "/100");
+        $("#profile-badges-quantity").html(profile.qtdBadges);
+
+        if(profile.qtdBadges > 0){
+            $("#badge-1-img").attr('src', '/resources/img/badges/1-on.png');
+        }else {
+            $("#badge-1-img").attr('src', '/resources/img/badges/1-off.png');
+        }
+
     };
 
 

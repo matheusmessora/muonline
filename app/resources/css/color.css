@@ -451,7 +451,7 @@ MISc
            INSIGNIAS
 ====================================  */
 
-.friendPlayerLevel {
+#profile-level-info {
     display: inline-block;
     font-size: 16px;
     border-radius: 16px;
@@ -462,7 +462,7 @@ MISc
     text-align: center;
     cursor: default;
 }
-.friendPlayerLevel.lvl_0 {
+#profile-level-info.lvl_1 {
     border-color: #9b9b9b;
 }
 .badge {
