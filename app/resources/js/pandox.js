@@ -374,6 +374,8 @@ PANDOX.PROFILE = function () {
         var publicURL = window.location.origin + "/perfil/" + profile.login;
         $("#profile-public-url").html(publicURL);
         $("#profile-public-url").attr('src', publicURL);
+        bindShareButton();
+
         $("#profile-login").html(profile.login);
 
         if (profile.qtdBadges > 0) {
@@ -387,6 +389,18 @@ PANDOX.PROFILE = function () {
             });
 
         }
+    };
+
+    var bindShareButton = function(){
+        $("#facebook-share-url").click(function (event) {
+            event.preventDefault();
+
+            var url =  $("#profile-public-url").attr('src');
+
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(url));
+
+        })
+
     };
 
 

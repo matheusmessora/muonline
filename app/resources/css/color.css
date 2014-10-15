@@ -617,3 +617,13 @@ SHOP
     font-size: 13px;
     color: #6D624C;
 }
+
+.share-buttons{
+	list-style: none;
+    padding: 0px;
+}
+
+.share-buttons li{
+	display: inline;
+    padding: 0px;
+}
