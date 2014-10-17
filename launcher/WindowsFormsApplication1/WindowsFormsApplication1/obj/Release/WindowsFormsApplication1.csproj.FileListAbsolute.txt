@@ -1,0 +1,8 @@
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form1.resources
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\World of MU.exe.config
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\World of MU.exe
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\World of MU.pdb
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\World of MU.exe
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\World of MU.pdb
