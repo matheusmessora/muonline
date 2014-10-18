@@ -40,6 +40,7 @@ PANDOX.SYSTEM = function () {
         var request = $.get("/api/server", function (server) {
                 $(".qtd-account").html(server.qtdAccount);
                 $(".qtd-chars").html(server.qtdChars);
+                $(".qtd-online").html(server.qtdOnline).addClass("text-info");
                 if (server.serverUp) {
                     $(".server-status").html("Online");
                     $(".server-status").addClass("text-success");
@@ -285,7 +286,7 @@ PANDOX.PROFILE = function () {
 
                     loadEnquete(finished);
                 });
-            }).fail(function(jqXHR, textStatus){
+            }).fail(function (jqXHR, textStatus) {
                 if (jqXHR.status == "401") {
                     PANDOX.SYSTEM.clearCookie();
                     location.reload();
@@ -396,11 +397,11 @@ PANDOX.PROFILE = function () {
         }
     };
 
-    var bindShareButton = function(){
+    var bindShareButton = function () {
         $("#facebook-share-url").click(function (event) {
             event.preventDefault();
 
-            var url =  $("#profile-public-url").attr('src');
+            var url = $("#profile-public-url").attr('src');
 
             window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(url));
 
