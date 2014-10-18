@@ -120,13 +120,29 @@ namespace WindowsFormsApplication1
         {
 
                 setWindowMode(false);
-                radio1280.Checked = true;
+                radioButton3.Checked = true;
                 checkBox1.Checked = true;
                 addResolution(3);
                 removeID();
 
 
 
+        }
+
+
+        private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            addResolution(1);
+        }
+
+        private void radio1280_CheckedChanged(object sender, EventArgs e)
+        {
+            addResolution(2);
+        }
+
+        private void radioButton3_CheckedChanged_1(object sender, EventArgs e)
+        {
+            addResolution(3);
         }
     }
 }

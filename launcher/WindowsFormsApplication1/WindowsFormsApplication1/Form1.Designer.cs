@@ -35,10 +35,10 @@ namespace WindowsFormsApplication1
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radio1280 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "0.0.2-alfa";
+            this.label1.Text = "0.0.3-alfa";
             // 
             // button2
             // 
@@ -98,7 +98,7 @@ namespace WindowsFormsApplication1
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(299, 378);
+            this.checkBox1.Location = new System.Drawing.Point(320, 380);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(77, 17);
             this.checkBox1.TabIndex = 7;
@@ -110,56 +110,45 @@ namespace WindowsFormsApplication1
             //
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox1.Controls.Add(this.radio1280);
+            this.groupBox1.Controls.Add(this.radioButton4);
+            this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.groupBox1.Location = new System.Drawing.Point(39, 354);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 61);
+            this.groupBox1.Size = new System.Drawing.Size(255, 61);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resolução";
             //
-            // radio1280
-            // 
-            this.radio1280.AutoSize = true;
-            this.radio1280.BackColor = System.Drawing.Color.Transparent;
-            this.radio1280.ForeColor = System.Drawing.Color.White;
-            this.radio1280.Location = new System.Drawing.Point(170, 24);
-            this.radio1280.Name = "radio1280";
-            this.radio1280.Size = new System.Drawing.Size(72, 17);
-            this.radio1280.TabIndex = 9;
-            this.radio1280.TabStop = true;
-            this.radio1280.Text = "1024x768";
-            this.radio1280.UseVisualStyleBackColor = false;
+            // radioButton3
+            //
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton3.ForeColor = System.Drawing.Color.White;
+            this.radioButton3.Location = new System.Drawing.Point(84, 26);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(72, 17);
+            this.radioButton3.TabIndex = 9;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "1024x768";
+            this.radioButton3.UseVisualStyleBackColor = false;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radio1280_CheckedChanged);
             //
             // radioButton2
             //
             this.radioButton2.AutoSize = true;
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(92, 24);
+            this.radioButton2.Location = new System.Drawing.Point(12, 26);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(66, 17);
             this.radioButton2.TabIndex = 8;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "800x600";
             this.radioButton2.UseVisualStyleBackColor = false;
-            //
-            // radioButton1
-            //
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(20, 24);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(66, 17);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "640x480";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged_1);
             //
             // linkLabel1
             //
@@ -175,6 +164,20 @@ namespace WindowsFormsApplication1
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "www.worldofmu.com.br";
             // 
+            // radioButton4
+            //
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton4.ForeColor = System.Drawing.Color.White;
+            this.radioButton4.Location = new System.Drawing.Point(162, 26);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(78, 17);
+            this.radioButton4.TabIndex = 10;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "1280x1024";
+            this.radioButton4.UseVisualStyleBackColor = false;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged_1);
+            //
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,10 +213,10 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radio1280;
+        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
 

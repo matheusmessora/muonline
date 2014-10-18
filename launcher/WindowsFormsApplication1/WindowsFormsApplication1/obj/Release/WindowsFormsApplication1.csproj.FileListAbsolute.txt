@@ -6,3 +6,4 @@ C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFor
 C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\World of MU.pdb
 C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\World of MU.exe
 C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\World of MU.pdb
+C:\Desenvolvimento\website\muonline\launcher\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
