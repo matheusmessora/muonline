@@ -5,7 +5,7 @@ html {
 body {
     /*    background: url("http://belleviewchristian.com/wp-content/uploads/2014/03/blue-wallpaper-background-texture-checkbox-1024x640.jpg");*/
     /*    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGElEQVQIW2NkYGCQBOLnQAwGjDAG0QKSAD1rAR6LthyCAAAAAElFTkSuQmCC'), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAWSjEh8SSD7OUwAzAFJggTgHJAAAEkuAx5OdRJCAAAAAElFTkSuQmCC') #000000;*/
-    font: normal 13px/1.5'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;
+/*    font: normal 13px/1.5'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;*/
     letter-spacing: 0.03em;
 
 }
@@ -93,7 +93,7 @@ td,
 /* CONTENT */
 
 .content {
-    margin-top: 3px;
+/*    margin-top: 3px;*/
     padding-top: 30px;
     padding-bottom: 20px;
 }
@@ -129,18 +129,13 @@ td,
 .news a:hover {
     text-decoration: none;
 }
-.news .notice-separator {
-    padding-bottom: 20px;
-}
-.news .notice {
-    padding-top: 25px;
-}
 
 /* JUMBOCRUN */
 
 .container .skybar {
     height: 100px;
     padding-top: 30px;
+    margin-bottom: 10px;
 }
 .skybar .text-bottom {
     padding-top: 40px;

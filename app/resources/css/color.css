@@ -2,9 +2,10 @@ body {
     background-image: url("/resources/img/bg.png");
     background-attachment: scroll;
     background-repeat: no-repeat;
-    background-position: 0 54px;
+    background-position: top;
     background-color: #000;
     color: #a99877;
+    font-size: 13px;
 }
 h1,
 h2,
@@ -71,6 +72,7 @@ li {
 }
 a {
     color: #ad835a;
+    color: #a99877;
 }
 a:hover,
 a:focus {
@@ -89,6 +91,16 @@ a:focus {
 TOP MENU
 ====================================  */
 
+.menu-container {
+    padding: 0;
+}
+.navbar {
+    margin-bottom: 0;
+    margin-top: 10px;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
 .navbar-default .navbar-brand {
     color: #a99877;
 }
@@ -104,13 +116,15 @@ TOP MENU
 .navbar-default .navbar-toggle {
     text-shadow: 0px 0px 20px #000;
     border-color: #2E2925;
-    background: #191814;
+    /*    background: #191814;*/
+    background: none;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
     text-shadow: 0px 0px 10px #F3E6D0;
     border-color: #2E2925;
-    background: #000;
+    /*    background: #000;*/
+    background: none;
     color: #F3E6D0;
 }
 .navbar-default .navbar-collapse,
@@ -118,7 +132,8 @@ TOP MENU
     border-color: #2E2925;
 }
 .navbar-default {
-    background: #191814;
+    /*    background: #191814;*/
+    background: #12110f;
     border-color: transparent;
     border-top: 2px solid #000;
     box-shadow: inset 0 -2px #4c0b05;
@@ -153,6 +168,7 @@ TOP MENU
 .navbar-default .navbar-nav>.active>a:focus {
     color: #F3E6D0;
     background: #000;
+    /*    background: none;*/
     border: 0;
     border-bottom: 2px solid #e60101;
     text-shadow: 0px 0px 10px #87c7eb;
@@ -172,6 +188,7 @@ TOP MENU
 .navbar-default .navbar-avatar>.active>a:hover,
 .navbar-default .navbar-avatar>.active>a:focus {
     background: #000;
+    /*    background: none;*/
 }
 /* LoginFIX*/
 
@@ -198,7 +215,9 @@ NAV TABS
     border-bottom-color: #2E2925;
 }
 .nav>li>a {
-    background: #191814;
+    background: #12110f;
+    /*    background: #191814;*/
+    /*    background: none;*/
     border-bottom: 1px solid #2E2925;
 }
 .nav>li>a:hover,
@@ -307,6 +326,9 @@ BTN
     background: linear-gradient(to bottom, #B80000 0, #660000 100%);
     text-shadow: 0px 0px 10px #dd3400;
 }
+.help-block {
+    color: #bdbdbd;
+}
 /*
 ====================================
 ACCORDION
@@ -407,8 +429,7 @@ ALERTS
     border-left-color: rgb(138, 195, 139);
 }
 .alert-success h1,
-.alert-success h3
-{
+.alert-success h3 {
     color: #356635;
 }
 .alert-danger {
@@ -458,6 +479,7 @@ MISc
 ====================================
            INSIGNIAS
 ====================================  */
+
 #profile-login {
     text-transform: uppercase;
 }
@@ -490,6 +512,22 @@ MISc
     border-right: 3px solid #1d1916;
     border-bottom: 3px solid #1d1916;
     border-top: 2px solid #000;
+}
+.notice-separator {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: #282622 1px solid;
+}
+
+.news .notice {
+    padding-top: 0px;
+}
+.notice h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #f3e6d0;
+    border-bottom: 0;
 }
 .notice-separator {
     /*    border-bottom: 1px solid #2E2925;*/
@@ -617,13 +655,11 @@ SHOP
     font-size: 13px;
     color: #6D624C;
 }
-
-.share-buttons{
-	list-style: none;
+.share-buttons {
+    list-style: none;
     padding: 0px;
 }
-
-.share-buttons li{
-	display: inline;
+.share-buttons li {
+    display: inline;
     padding: 0px;
 }

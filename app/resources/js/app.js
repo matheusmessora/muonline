@@ -9,15 +9,6 @@ $(function () {
     PANDOX.SHOP.init();
 
 
-    // GetNews
-    $.getJSON("/resources/js/news.json", {})
-        .done(function (json) {
-            $("#template-container").loadTemplate("/views/news.html", json, {
-                isFile: true
-            });
-        });
-
-
 
     // Highlither
     $("li").removeClass("active");

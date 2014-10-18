@@ -285,6 +285,11 @@ PANDOX.PROFILE = function () {
 
                     loadEnquete(finished);
                 });
+            }).fail(function(jqXHR, textStatus){
+                if (jqXHR.status == "401") {
+                    PANDOX.SYSTEM.clearCookie();
+                    location.reload();
+                }
             });
         }
 
@@ -373,7 +378,7 @@ PANDOX.PROFILE = function () {
 
         var publicURL = window.location.origin + "/perfil/" + profile.login;
         $("#profile-public-url").html(publicURL);
-        $("#profile-public-url").attr('src', publicURL);
+        $("#profile-public-url").attr('href', publicURL);
         bindShareButton();
 
         $("#profile-login").html(profile.login);
