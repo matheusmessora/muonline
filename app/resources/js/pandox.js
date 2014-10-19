@@ -739,3 +739,74 @@ PANDOX.SHOP = function () {
 
 
 }();
+
+/*=====================================================================================================
+ * Pandox LOGIN Module
+ *======================================================================================================*/
+PANDOX.RANKING = function () {
+
+    var init = function () {
+        var request = $.get("/api/hero", function (heroes) {
+            $.each(heroes, function (i, hero) {
+                var showImg = false;
+                if (i === 0) {
+                    showImg = true;
+                } else if (i === 1) {
+                    showImg = true;
+                } else if (i === 2) {
+                    showImg = true;
+                } else {}
+
+                if (showImg) {
+                    $("#ranking-tbody").append($('<tr>')
+                        .append($('<td  class="table-center">')
+                            .append($('<img>')
+                                .attr('src', '/resources/img/rank/rank_0' + (i + 1) + '.png')
+                                .text('Image cell')
+                            )
+                        ).append($('<td  class="table-center">')
+                            .append($('<img class="rank-img">')
+                                .attr('src', '/resources/img/rank/' +hero.img+ '.png')
+                                .text('Image cell')
+                            )
+                        ).append($('<td>')
+                            .append(hero.name)
+                        ).append($('<td  class="table-center">')
+                            .append(hero.reset)
+                        ).append($('<td  class="table-center">')
+                            .append(hero.level)
+                        ));
+                } else {
+                    $("#ranking-tbody").append($('<tr>')
+                        .append($('<td  class="table-center">')
+                            .append((i+1))
+                        ).append($('<td  class="table-center">')
+                            .append($('<img class="rank-img">')
+                                .attr('src', '/resources/img/rank/' +hero.img+ '.png')
+                                .text('Image cell')
+                            )
+                        ).append($('<td>')
+                            .append(hero.name)
+                        ).append($('<td  class="table-center">')
+                            .append(hero.reset)
+                        ).append($('<td  class="table-center">')
+                            .append(hero.level)
+                        ));
+
+                }
+
+
+            })
+
+        }) .fail(function () {
+                    window.location.replace("/manutencao");
+                });
+
+
+    };
+
+
+    return {
+        init: init
+    }
+}();

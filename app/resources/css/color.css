@@ -535,6 +535,23 @@ MISc
 .sidebar {
     border-left: 1px solid #2a241c;
 }
+
+/*
+====================================
+RANKING
+====================================  */
+.table>#ranking-tbody>tr>td{
+    text-align: left;
+}
+.table-center {
+    text-align: center !important;
+
+}
+.rank-img {
+    width: 42px;
+    heigth: 42px;
+}
+
 .ranking {
     background: #191814;
     border: 0;
