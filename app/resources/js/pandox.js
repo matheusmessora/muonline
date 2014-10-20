@@ -614,18 +614,18 @@ PANDOX.SHOP = function () {
                         credits = $.number(credits, 0, ',', '.');
                         value = $.number(value, 0, ',', '.');
 
-                        $(".shop-rev-item-desc").html(item.title);
-                        $(".shop-rev-item-qtd").html(1);
-                        $(".shop-rev-item-value").html(value);
+//                        $(".shop-rev-item-desc").html(item.title);
+//                        $(".shop-rev-item-qtd").html(1);
+//                        $(".shop-rev-item-value").html(value);
 
                         $("#shop-working").hide();
                         $("#shop-revision").fadeIn();
-                        $(".shop-rev-acc-credits").html(credits);
-                        $(".shop-rev-credits-remaing").html(creditsRemaining);
+//                        $(".shop-rev-acc-credits").html(credits);
+//                        $(".shop-rev-credits-remaing").html(creditsRemaining);
 
                         if (creditsRemaining > 0) {
-                            $(".shop-rev-credits-remaing").addClass('text-success');
-                            $(".shop-rev-credits-remaing-title").addClass('text-success');
+//                            $(".shop-rev-credits-remaing").addClass('text-success');
+//                            $(".shop-rev-credits-remaing-title").addClass('text-success');
                         } else {
                             $(".shop-rev-credits-remaing").addClass('text-danger');
                             $(".shop-rev-credits-remaing-title").addClass('text-danger');
