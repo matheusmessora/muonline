@@ -71,8 +71,12 @@ li {
     border-color: #28241d;
 }
 a {
-    color: #ad835a;
+/*    color: #ad835a;*/
     color: #a99877;
+
+}
+p>a{
+    text-decoration: underline;
 }
 a:hover,
 a:focus {
