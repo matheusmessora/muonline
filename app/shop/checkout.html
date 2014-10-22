@@ -38,7 +38,7 @@
 
                     <h1>Confirmação de compra</h1>
                     <div id="shop-alert-success" class="alert alert-success" role="alert" style="display:none;"><h1>Parabéns!</h1><p>Compra realizada com sucesso!</p></div>
-                    <div id="shop-alert-error" class="alert alert-danger" role="alert" style="display:none;"><h1>Ops! Você está sem créditos!</h1><p><a href="/shop/creditos">Clique aqui</a> para recarregar seus créditos e poder continuar comprando!</p></div>
+                    <div id="shop-alert-error" class="alert alert-danger" role="alert" style="display:none;"><h1 id="shop-error-h1">Ops! Você está sem créditos!</h1><p id="shop-error-txt"><a href="/shop/creditos">Clique aqui</a> para recarregar seus créditos e poder continuar comprando!</p></div>
                     <p>Confirme abaixo o item selecionado para compra.</p>
                     <div class="panel">
                         <div class="panel-body">
@@ -52,9 +52,9 @@
                                 </thead>
                                 <tbody class="table-separator">
                                     <tr>
-                                        <td class="shop-rev-item-desc">Vip 15 dias</td>
-                                        <td class="shop-rev-item-qtd">1</td>
-                                        <th class="shop-rev-item-value">1900</th>
+                                        <td class="shop-rev-item-desc"></td>
+                                        <td class="shop-rev-item-qtd"></td>
+                                        <th class="shop-rev-item-value"></th>
                                     </tr>
 
                                 </tbody>
@@ -66,21 +66,23 @@
                 <div class="row">
                     <h2>Saldo em conta</h2>
                     <p> Para adicionar mais créditos, <a href="/shop/creditos">clique aqui</a></p>
-<!--
                     <div class="col-xs-6 col-sm-3 text-right">
                         <p>Créditos atuais:</p>
+<!--
                         <p>Valor da compra:</p>
                         <p class="shop-rev-credits-remaing-title">Créditos restantes:</p>
+-->
                     </div>
                     <div class="col-xs-3 col-sm-1 text-right">
                         <p><strong class="shop-rev-acc-credits"></strong>
                         </p>
+<!--
                         <p><strong class="shop-rev-item-value"></strong>
                         </p>
                         <p><strong class="shop-rev-credits-remaing"></strong>
                         </p>
-                    </div>
 -->
+                    </div>
                 </div>
 
                 <div class="row" id="checkout-revision">

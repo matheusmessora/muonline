@@ -384,6 +384,16 @@ PANDOX.PROFILE = function () {
 
         $("#profile-login").html(profile.login);
 
+        //VIP
+        if(profile.vip){
+            $("#profile-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
+            $("#profile-vip-day").html(profile.vipDays);
+        } else {
+            $("#profile-is-vip").html("Usuário normal. [<a href='/shop/vip'>Comprar VIP</a>]");
+            $("#profile-vip-day").html("0");
+
+        }
+
         if (profile.qtdBadges > 0) {
             $.each(profile.badges, function (i, badge) {
                 var img = "#badge-" + badge.badgeId + "-img";
@@ -579,25 +589,12 @@ PANDOX.SHOP = function () {
         var getURL = url.split("?")[0];
 
         if (getURL.indexOf("/shop/checkout") > -1) {
-            // Show WORKING
-            //            function working(){
-            //                $("#shop-working").html('Trabalhando...');
-            //            };
-            //
-            //            working();
             function onAuthenticated() {
+                $("#checkout-revision").hide();
+
                 var cache = localStorage.getItem("X-WOMU-account");
-                //                cache = {
-                //                    login: "teste2",
-                //                    password: null,
-                //                    name: "matheus",
-                //                    credits: 5000,
-                //                    email: "teste@teste.com",
-                //                    roles: []
-                //                };
                 if (cache !== null) {
                     account = JSON.parse(cache);
-                    //                    account = cache;
                     PANDOX.SYSTEM.loadAccount(account);
                     $(".shop-rev-acc-login").html(account.login);
                     $(".shop-rev-acc-email").html(account.email);
@@ -614,22 +611,20 @@ PANDOX.SHOP = function () {
                         credits = $.number(credits, 0, ',', '.');
                         value = $.number(value, 0, ',', '.');
 
-                        //                        $(".shop-rev-item-desc").html(item.title);
-                        //                        $(".shop-rev-item-qtd").html(1);
-                        //                        $(".shop-rev-item-value").html(value);
+                        $(".shop-rev-item-desc").html(item.title);
+                        $(".shop-rev-item-qtd").html(1);
+                        $(".shop-rev-item-value").html(value);
 
                         $("#shop-working").hide();
                         $("#shop-revision").fadeIn();
-                        //                        $(".shop-rev-acc-credits").html(credits);
-                        //                        $(".shop-rev-credits-remaing").html(creditsRemaining);
+                        $(".shop-rev-acc-credits").html(credits);
+                        $(".shop-rev-credits-remaing").html(creditsRemaining);
 
                         if (creditsRemaining > 0) {
-                            //                            $(".shop-rev-credits-remaing").addClass('text-success');
-                            //                            $(".shop-rev-credits-remaing-title").addClass('text-success');
+                            $("#checkout-revision").show();
                         } else {
                             $(".shop-rev-credits-remaing").addClass('text-danger');
                             $(".shop-rev-credits-remaing-title").addClass('text-danger');
-                            $("#checkout-revision").hide();
                             $("#shop-alert-error").show();
 
 
@@ -703,7 +698,39 @@ PANDOX.SHOP = function () {
 
             $("#shop-confirmation-btn").hide();
             $("#loading").show();
-            $("#shop-alert-success").fadeIn();
+
+            var id = PANDOX.UTIL.getUrlParam('id');
+            var json = {
+                item: id
+            }
+
+            var request = $.ajax({
+                url: "/api/checkout",
+                type: "POST",
+                data: JSON.stringify(json),
+                contentType: "application/json"
+            });
+
+
+            request.done(function (data, textStatus, jqXHR) {
+                window.location.replace("/shop/sucesso");
+            });
+
+            request.fail(function (promise) {
+                var result = promise.responseJSON;
+
+                $.each(result, function (i, erro) {
+                    $("#shop-error-h1").html();
+                    $("#shop-error-txt").html(erro.message);
+                });
+
+                $("#loading").hide();
+                $("#shop-alert-error").fadeIn();
+
+            });
+
+
+
 
         })
     };
@@ -712,6 +739,8 @@ PANDOX.SHOP = function () {
         $(".shop-item").click(function (event) {
 
             var itemId = $(this).attr('x-item-id');
+
+
 
             $("#shop-display").hide();
 
@@ -745,8 +774,8 @@ PANDOX.SHOP = function () {
  *======================================================================================================*/
 PANDOX.RANKING = function () {
 
-    var getRanking = function(size){
-         var request = $.get("/api/hero?size=" + size, function (heroes) {
+    var getRanking = function (size) {
+        var request = $.get("/api/hero?size=" + size, function (heroes) {
             renderRanking(heroes);
         }).fail(function () {
             window.location.replace("/manutencao");
