@@ -4,6 +4,9 @@
 <head>
     <title>World Of MU - Servidor Hard MuOnline Season6 Ep3</title>
     <!--# include file="/includes/head.html" -->
+    <script>
+        PANDOX.RANKING.getRanking(5);
+    </script>
 </head>
 
 <body>
@@ -22,16 +25,18 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="/resources/img/banner-005.png" alt="...">
-                        <div class="carousel-caption">
-                            ...
-                        </div>
+                        <a href="/noticias/eventos/online">
+                            <img src="/resources/img/banner-005.png" alt="..." style="cursor: pointer;">
+                            <div class="carousel-caption">
+                            </div>
+                        </a>
                     </div>
                     <div class="item">
-                        <img src="/resources/img/banner-004.png" alt="...">
-                        <div class="carousel-caption">
-                            ...
-                        </div>
+                        <a href="/noticias/eventos/sorteio">
+                            <img src="/resources/img/banner-004.png" alt="..." style="cursor: pointer;">
+                            <div class="carousel-caption">
+                            </div>
+                        </a>
                     </div>
                     ...
                 </div>
@@ -240,60 +245,27 @@
                     </table>
                 </div>
             </div>
-            <!--
-            <div class="row panel">
+            <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Ranking</h3>
+                    <h3 class="panel-title">TOP 5</h3>
                 </div>
                 <div class="panel-body">
-                    <ul class="nav nav-tabs ranking-tabs ">
-                        <li><a href="#aaa" data-toggle="tab">Resets</a>
-                        </li>
-                        <li class="active"><a href="#aaa" data-toggle="tab">Duelo</a>
-                        </li>
-                        <li><a href="#aaa" data-toggle="tab">Guilds</a>
-                        </li>
-                    </ul>
-                    <table class="table table-condensed table-striped text-center ranking">
+                    <table class="table table-striped text-center">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Rank</th>
+                                <th>Classe</th>
                                 <th>Nome</th>
                                 <th>Resets</th>
-                                <th>Classe</th>
+                                <th>Level</th>
                             </tr>
                         </thead>
-                        <tbody class="table-separator">
-                            <tr>
-                                <th>1</th>
-                                <td>NegoVerde</td>
-                                <td>10</td>
-                                <td>Blade Master</td>
-                            </tr>
-                            <tr>
-                                <th>2</th>
-                                <td>Daze</td>
-                                <td>8</td>
-                                <td>Grand Master</td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Fenahot</td>
-                                <td>8</td>
-                                <td>ME</td>
-                            </tr>
-                            <tr>
-                                <th>4</th>
-                                <td>TeRRoR</td>
-                                <td>5</td>
-                                <td>High Elf</td>
-                            </tr>
+                        <tbody id="ranking-tbody" class="table-separator">
 
                         </tbody>
                     </table>
                 </div>
             </div>
--->
 
         </div>
 
