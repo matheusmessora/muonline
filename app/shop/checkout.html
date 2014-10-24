@@ -27,7 +27,11 @@
 
         <!-- MAINBAR -->
 
-        <div class="col-lg-9">
+        <div class="col-md-9 col-xs-12">
+            <div class="bread">
+                <p><a href="/">Home</a> : <a href="/shop">Shopping</a> : <a href="/shop/checkout" class="active">Finalização</a>
+                </p>
+            </div>
             <div id="shop-working">
                 <h1>Processando... <img class="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" /> </h1>
             </div>
@@ -37,8 +41,14 @@
 
 
                     <h1>Confirmação de compra</h1>
-                    <div id="shop-alert-success" class="alert alert-success" role="alert" style="display:none;"><h1>Parabéns!</h1><p>Compra realizada com sucesso!</p></div>
-                    <div id="shop-alert-error" class="alert alert-danger" role="alert" style="display:none;"><h1 id="shop-error-h1">Ops! Você está sem créditos!</h1><p id="shop-error-txt"><a href="/shop/creditos">Clique aqui</a> para recarregar seus créditos e poder continuar comprando!</p></div>
+                    <div id="shop-alert-success" class="alert alert-success" role="alert" style="display:none;">
+                        <h1>Parabéns!</h1>
+                        <p>Compra realizada com sucesso!</p>
+                    </div>
+                    <div id="shop-alert-error" class="alert alert-danger" role="alert" style="display:none;">
+                        <h1 id="shop-error-h1">Ops! Você está sem créditos!</h1>
+                        <p id="shop-error-txt"><a href="/shop/creditos">Clique aqui</a> para recarregar seus créditos e poder continuar comprando!</p>
+                    </div>
                     <p>Confirme abaixo o item selecionado para compra.</p>
                     <div class="panel">
                         <div class="panel-body">
@@ -64,57 +74,42 @@
                 </div>
 
                 <div class="row">
-                    <h2>Saldo em conta</h2>
-                    <p> Para adicionar mais créditos, <a href="/shop/creditos">clique aqui</a></p>
-                    <div class="col-xs-6 col-sm-3 text-right">
-                        <p>Créditos atuais:</p>
-<!--
-                        <p>Valor da compra:</p>
-                        <p class="shop-rev-credits-remaing-title">Créditos restantes:</p>
--->
-                    </div>
-                    <div class="col-xs-3 col-sm-1 text-right">
-                        <p><strong class="shop-rev-acc-credits"></strong>
-                        </p>
-<!--
-                        <p><strong class="shop-rev-item-value"></strong>
-                        </p>
-                        <p><strong class="shop-rev-credits-remaing"></strong>
-                        </p>
--->
-                    </div>
-                </div>
-
-                <div class="row" id="checkout-revision">
-                    <h2>Revisão</h2>
-                    <div class="col-xs-6 col-sm-3 text-right">
-                        <p>Conta World of MU:</p>
-                        <p>E-mail:</p>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 text-left">
-                        <p><strong class="shop-rev-acc-login"></strong>
-                        </p>
-                        <p><strong class="shop-rev-acc-email"></strong>
-                        </p>
-                        <p>
-                            <img id="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" style="display: none;" />
-                            <button id="shop-confirmation-btn" type="submit" class="btn btn-info btn-lg">Confirmar</button>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row text-left">
-
-                    <p>
-                        <br />
-                        <br />
-                        <br /><em>Nunca forneça sua senha para ninguém.</em>
+                    <h2>Saldo em conta </h2>
+                    <p>Créditos atuais: <strong class="shop-rev-acc-credits"></strong> [<a href="/shop/creditos" target="_blank">Recarregar créditos</a>]
                     </p>
 
                 </div>
             </div>
 
+            <div class="row" id="checkout-revision">
+                <h2>Revisão</h2>
+                <div class="col-xs-6 col-sm-3 text-right">
+                    <p>Conta World of MU:</p>
+                    <p>E-mail:</p>
+                </div>
+                <div class="col-xs-6 col-sm-3 text-left">
+                    <p><strong class="shop-rev-acc-login"></strong>
+                    </p>
+                    <p><strong class="shop-rev-acc-email"></strong>
+                    </p>
+                    <p>
+                        <img id="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" style="display: none;" />
+                        <button id="shop-confirmation-btn" type="submit" class="btn btn-info btn-lg">Confirmar</button>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row text-left">
+
+                <p>
+                    <br />
+                    <br />
+                    <br /><em>Nunca forneça sua senha para ninguém.</em>
+                </p>
+
+            </div>
         </div>
+
 
         <!-- SIDEBAR -->
         <div class="col-md-3 sidebar col-xs-12">
@@ -133,10 +128,10 @@
             </div>
 
 
-
         </div>
 
     </div>
+
 
 
     <!--# include file="/includes/footer.html" -->

@@ -7,6 +7,41 @@ body {
     color: #a99877;
     font-size: 13px;
 }
+@font-face {
+    font-family: 'HominisNormal';
+    src: url('http://demo.hongkiat.com/css-better-paragraph/styles/fonts/HOMINIS-webfont.eot');
+    src: url('http://demo.hongkiat.com/css-better-paragraph/styles/fonts/HOMINIS-webfont.eot?#iefix') format('embedded-opentype'), url('http://demo.hongkiat.com/css-better-paragraph/styles/fonts/HOMINIS-webfont.woff') format('woff'), url('http://demo.hongkiat.com/css-better-paragraph/styles/fonts/HOMINIS-webfont.ttf') format('truetype'), url('http://demo.hongkiat.com/css-better-paragraph/styles/fonts/HOMINIS-webfont.svg#HominisNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+p.letter {
+    color: #490908;
+    font-family: 'Georgia', Times, serif;
+    line-height: 24px;
+    padding: 30px;
+    border-left: 5px solid #493016;
+    background-color: #e8cb8d;
+    line-height: 32px;
+    box-shadow: 10px 10px 0px 0px #060505;
+/*    position: relative;*/
+}
+p.letter:first-letter {
+    font-size: 72px;
+    float: left;
+    padding: 10px;
+    height: 64px;
+    font-family: 'HominisNormal';
+    background-color: #7F7664;
+    margin-right: 10px;
+    color: white;
+    border-radius: 5px;
+    line-height: 70px;
+}
+p.letter:first-line {
+    font-weight: bold;
+    font-size: 24px;
+    color: #7f7664;
+}
 h1,
 h2,
 h3,
@@ -19,6 +54,7 @@ h1 {
     border-bottom: 1px solid #28241d;
     padding-bottom: 8px;
     margin-bottom: 15px;
+    /*    font-family: "Palatino Linotype";*/
 }
 h5 {
     margin: 0;
@@ -71,11 +107,10 @@ li {
     border-color: #28241d;
 }
 a {
-/*    color: #ad835a;*/
+    /*    color: #ad835a;*/
     color: #a99877;
-
 }
-p>a{
+p>a {
     text-decoration: underline;
 }
 a:hover,
@@ -263,7 +298,7 @@ a.thumbnail.active {
     margin-bottom: 10px;
 }
 .img-thumbnail {
-    background-color: #300E0D;
+    background-color: transparent;
     border: 0;
     padding: 0px;
 }
@@ -402,6 +437,10 @@ BREADCUMB
     border-radius: 0;
     margin-bottom: 0px;
 }
+.bread a.active {
+    color: #F3E6D0;
+    text-decoration: none;
+}
 /*
 ====================================
 ALERTS
@@ -426,7 +465,6 @@ ALERTS
     margin: 0;
     font-weight: bold;
 }
-
 .alert-warn {
     border-color: #dfb56c;
     color: #826430;
@@ -529,7 +567,6 @@ MISc
     margin-bottom: 10px;
     border-bottom: #282622 1px solid;
 }
-
 .news .notice {
     padding-top: 0px;
 }
@@ -546,23 +583,21 @@ MISc
 .sidebar {
     border-left: 1px solid #2a241c;
 }
-
 /*
 ====================================
 RANKING
 ====================================  */
-.table>#ranking-tbody>tr>td{
+
+.table>#ranking-tbody>tr>td {
     text-align: left;
 }
 .table-center {
     text-align: center !important;
-
 }
 .rank-img {
     width: 42px;
     heigth: 42px;
 }
-
 .ranking {
     background: #191814;
     border: 0;

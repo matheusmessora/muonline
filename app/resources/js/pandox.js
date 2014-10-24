@@ -674,7 +674,7 @@ PANDOX.SHOP = function () {
         } else {
 
             // GetNews
-            $.getJSON("/shop/includes/vip/" + id + ".json", {})
+            $.getJSON("/api/item/" + id, {})
                 .done(function (json) {
                     $("#shop-working").hide();
                     $("#shop-cart").show();
