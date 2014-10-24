@@ -385,7 +385,7 @@ PANDOX.PROFILE = function () {
         $("#profile-login").html(profile.login);
 
         //VIP
-        if(profile.vip){
+        if (profile.vip) {
             $("#profile-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
             $("#profile-vip-day").html(profile.vipDays);
         } else {
@@ -581,7 +581,9 @@ PANDOX.SHOP = function () {
         bindBackBtn();
         bindConfirmationBtn();
         loadRevision();
+
     };
+
 
     var loadRevision = function () {
 
@@ -661,16 +663,32 @@ PANDOX.SHOP = function () {
     };
 
     var getVIP = function () {
-        // GetNews
-        $.getJSON("/shop/includes/vip.json", {})
-            .done(function (json) {
-                $("#shop-cart").loadTemplate("/views/shop/cart.html", json, {
-                    isFile: true,
-                    complete: showShopCart
+
+        var id = PANDOX.UTIL.getUrlParam('id');
+        console.log(id);
+        if (PANDOX.UTIL.isBlank(id)) {
+            console.log("VIP", id);
+            $("#shop-display").show();
+            $("#shop-working").hide();
+            console.log("VIP2", id);
+        } else {
+
+            // GetNews
+            $.getJSON("/shop/includes/vip/" + id + ".json", {})
+                .done(function (json) {
+                    $("#shop-working").hide();
+                    $("#shop-cart").show();
+                    $("#shop-display").hide();
+
+                    console.log(json);
+                    $("#shop-cart-title").html(json.title);
+                    $("#shop-cart-description").html(json.description);
+                    $("#shop-cart-value").html(json.value);
+                    $("#shop-rev-btn").attr('href', '/shop/checkout?id=' + id);
                 });
+        }
 
 
-            });
     };
 
     var showShopCart = function () {
@@ -728,9 +746,6 @@ PANDOX.SHOP = function () {
                 $("#shop-alert-error").fadeIn();
 
             });
-
-
-
 
         })
     };
