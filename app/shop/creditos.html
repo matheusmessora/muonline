@@ -5,6 +5,7 @@
     <title>Shopping - Sword | World Of MU</title>
     <!--# include file="/includes/head.html" -->
     <script type="text/javascript">
+        PANDOX.SHOP.pagsgeuro();
     </script>
 </head>
 
@@ -15,7 +16,7 @@
     <div class="container">
         <div class="row  skybar skybar-demon">
             <div class="col-xs-9">
-                <h2>Créditos</h2>
+                <h2>Shop > Créditos</h2>
             </div>
             <!--# include file="/includes/credits.html" -->
         </div>
@@ -30,14 +31,73 @@
                 <div class="col-xs-12">
                     <h1>Créditos</h1>
                     <p>Todos os produtos da loja de World of MU só poderão ser comprados através de créditos.</p>
-                    <p><strong>Não venderemos</strong> itens FULL ou Excelent em nossa loja. Estamos focando o nosso servidor para que o jogador com maior tempo de jogo e melhor habilidade seja o melhor. <strong>Não queremos e não iremos beneficiar</strong> jogadores que possuem uma renda mais favóravel se tornem os melhores do World of MU.</p>
-                    <p>Acreditamos que este seja o caminho para o melhor divertimento de todos os jogadores.</p>
-
-                    <h2>Página em manuteção...</h2>
-                    <p>Estamos desenvolvendo uma integração com o PagSeguro para facilitar a compra de créditos. Pretendemos lançar junto com o lançamento oficial do World of MU.</p>
 
                 </div>
             </div>
+            <div class="row" id="credits-display">
+                <div class="col-md-4 col-xs-4">
+
+                    <a class="thumbnail">
+                        <h3>500</h3>
+                        <p class="credits-desc">créditos</p>
+                        <hr span="line-separator">
+                        <p class="price">R$ <span class="currency">10,00</span>
+                        </p>
+
+                        <button type="submit" class="btn btn-info btn-lg pagseguto-btn" x-id="1" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!">COMPRAR</button>
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-4 col-xs-4">
+
+                    <a class="thumbnail">
+                        <!--                        <img class="img-thumbnail" src="http://www.muattack.com.br/arquivos/monster_lorencia_spider.jpg" alt="...">-->
+                        <h3>1.000</h3>
+                        <p class="credits-desc">créditos</p>
+                        <hr class="line-separatores">
+                        <p class="price">R$ <span class="currency">20,00</span>
+                        </p>
+                            <button type="submit" class="btn btn-info btn-lg pagseguto-btn" x-id="2" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!">COMPRAR</button>
+                    </a>
+
+                </div>
+                <div class="col-md-4 col-xs-4">
+
+                    <a class="thumbnail">
+                        <!--                        <img class="img-thumbnail" src="http://www.muattack.com.br/arquivos/monster_lorencia_spider.jpg" alt="...">-->
+                        <h3>2.000</h3>
+                        <p class="credits-desc">créditos</p>
+                        <hr span="line-separator">
+                        <p class="price">R$ <span class="currency">30,00</span>
+                        </p>
+                        <button type="submit" class="btn btn-info btn-lg pagseguto-btn" x-id="3" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!">COMPRAR</button>
+                    </a>
+
+                </div>
+                <p><span class="text-info">Atenção:</span> Ao clicar em COMPRAR, você será redirecionado para o PagSeguro para terminar sua compra.</p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <h3>Tempo de entrega</h3>
+                    <p>Após o PagSeguro notificar a confirmar de pagamento, os créditos serão depositados em um prazo máximo de 4 horas.</p>
+                    <p>Lembrando que não é necessário enviar comprovante para nossa equipe, pois o próprio PagSeguro se encarrega de realizar essa tarefa.</p>
+                    <p>
+
+                        <!-- INICIO CODIGO PAGSEGURO -->
+                        <center>
+
+                            <img alt='Logotipos de meios de pagamento do PagSeguro' src='https://p.simg.uol.com.br/out/pagseguro/i/banners/pagamento/todos_animado_550_50.gif' title='Este site aceita pagamentos com Visa, MasterCard, Diners, American Express, Hipercard, Aura, Elo, PLENOCard, PersonalCard, BrasilCard, FORTBRASIL, Cabal, Mais!, Avista, Grandcard, Sorocred, Bradesco, Itaú, Banco do Brasil, Banrisul, Banco HSBC, saldo em conta PagSeguro e boleto.' border='0'>
+
+                        </center>
+                        <!-- FINAL CODIGO PAGSEGURO -->
+                    </p>
+
+                </div>
+            </div>
+
         </div>
 
         <!-- SIDEBAR -->
@@ -55,4 +115,6 @@
 </body>
 
 </html>
+
+
 

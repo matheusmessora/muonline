@@ -23,7 +23,6 @@ p.letter {
     background-color: #1a0f08;
     line-height: 32px;
     box-shadow: 10px 10px 0px 0px #060505;
-
     font-style: italic;
 }
 p.letter:first-letter {
@@ -37,11 +36,9 @@ p.letter:first-letter {
     color: #e9b102;
     border-radius: 5px;
     line-height: 70px;
-
     font-style: normal;
 }
 p.letter:first-line {
-
     font-weight: bold;
     font-size: 24px;
     color: #e9b102;
@@ -640,8 +637,6 @@ SHOP
 #shop-display .currency {
     font-size: 13px;
 }
-/*Extra-small*/
-
 @media (max-width: 768px) {
     #shop-cart {
         text-align: center;
@@ -684,6 +679,45 @@ SHOP
     border-color: #28241d
         border-color: #e60101;
 */
+}
+#credits-display {
+     text-align: center;
+}
+
+#credits-display a.thumbnail:hover {
+    color: #F3E6D0;
+}
+#credits-display .thumbnail {
+    padding: 5px 20px 20px 20px;
+    cursor: pointer;
+}
+#credits-display h3 {
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+#credits-display hr {
+    border-color: #000;
+    margin-bottom: 0;
+}
+#credits-display .credits-desc {
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+}
+#credits-display .price {
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+#credits-display .currency {
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+}
+#credits-display .pagseguro {
+    text-align: center;
+
 }
 .signature {
     font-style: italic;

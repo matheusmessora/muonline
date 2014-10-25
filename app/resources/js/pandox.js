@@ -588,6 +588,25 @@ PANDOX.SHOP = function () {
 
     };
 
+    var pagseguro = function() {
+        $(".pagseguro-btn").click(function (event) {
+            event.preventDefault();
+
+            var id = $(this).attr("x-id");
+
+             var request = $.ajax({
+                url: "/api/credit/" + id,
+                type: "POST",
+                contentType: "application/json"
+            });
+
+
+            request.done(function (data, textStatus, jqXHR) {
+                window.location.replace(data.id);
+            });
+        })
+    };
+
 
     var loadRevision = function () {
 
