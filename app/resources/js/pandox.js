@@ -386,10 +386,14 @@ PANDOX.PROFILE = function () {
 
         //VIP
         if (profile.vip) {
+            $("#account-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
             $("#profile-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
             $("#profile-vip-day").html(profile.vipDays);
+
+            $("#profile-login").append(" <i class='glyphicon glyphicon-star-empty text-alert'></i>")
         } else {
-            $("#profile-is-vip").html("Usuário normal. [<a href='/shop/vip'>Comprar VIP</a>]");
+            $("#profile-is-vip").html("Usuário normal.");
+            $("#account-is-vip").html("Usuário normal. [<a href='/shop/vip'>Comprar VIP</a>]");
             $("#profile-vip-day").html("0");
 
         }

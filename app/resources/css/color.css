@@ -15,15 +15,16 @@ body {
     font-style: normal;
 }
 p.letter {
-    color: #490908;
+    color: #ff8c00;
     font-family: 'Georgia', Times, serif;
     line-height: 24px;
     padding: 30px;
     border-left: 5px solid #493016;
-    background-color: #e8cb8d;
+    background-color: #1a0f08;
     line-height: 32px;
     box-shadow: 10px 10px 0px 0px #060505;
-/*    position: relative;*/
+
+    font-style: italic;
 }
 p.letter:first-letter {
     font-size: 72px;
@@ -31,16 +32,19 @@ p.letter:first-letter {
     padding: 10px;
     height: 64px;
     font-family: 'HominisNormal';
-    background-color: #7F7664;
+    background-color: #000;
     margin-right: 10px;
-    color: white;
+    color: #e9b102;
     border-radius: 5px;
     line-height: 70px;
+
+    font-style: normal;
 }
 p.letter:first-line {
+
     font-weight: bold;
     font-size: 24px;
-    color: #7f7664;
+    color: #e9b102;
 }
 h1,
 h2,
