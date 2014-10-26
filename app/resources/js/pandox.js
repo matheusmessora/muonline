@@ -588,23 +588,38 @@ PANDOX.SHOP = function () {
 
     };
 
-    var pagseguro = function() {
-        $(".pagseguro-btn").click(function (event) {
-            event.preventDefault();
+    var pagseguro = function () {
 
-            var id = $(this).attr("x-id");
+        var go = function () {
+            $(".pagseguro-btn").click(function (event) {
 
-             var request = $.ajax({
-                url: "/api/credit/" + id,
-                type: "POST",
-                contentType: "application/json"
-            });
+                console.log("ENTROU");
+
+                var id = $(this).attr("x-id");
+                console.log(id);
+
+                var request = $.ajax({
+                    url: "/api/credit/" + id,
+                    type: "POST",
+                    contentType: "application/json"
+                });
 
 
-            request.done(function (data, textStatus, jqXHR) {
-                window.location.replace(data.id);
-            });
-        })
+                request.done(function (data, textStatus, jqXHR) {
+                    window.location.replace(data.id);
+                });
+
+                request.fail(function (promise) {
+                    var result = promise.responseJSON;
+
+                    console.log(result);
+
+                });
+            })
+        };
+
+
+        PANDOX.SYSTEM.forceAuthentication(go());
     };
 
 
@@ -800,7 +815,8 @@ PANDOX.SHOP = function () {
     return {
         init: init,
         getSwords: getSwords,
-        getVIP: getVIP
+        getVIP: getVIP,
+        pagseguro: pagseguro
     }
 
 

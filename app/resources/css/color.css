@@ -114,6 +114,9 @@ a {
 p>a {
     text-decoration: underline;
 }
+td>a {
+    text-decoration: underline;
+}
 a:hover,
 a:focus {
     color: #F3E6D0;
