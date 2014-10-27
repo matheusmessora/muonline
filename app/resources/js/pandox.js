@@ -593,10 +593,11 @@ PANDOX.SHOP = function () {
         var go = function () {
             $(".pagseguro-btn").click(function (event) {
 
-                console.log("ENTROU");
+                var button = $(this);
 
+                $(this).hide();
                 var id = $(this).attr("x-id");
-                console.log(id);
+                $("#loading" + id).show();
 
                 var request = $.ajax({
                     url: "/api/credit/" + id,
@@ -612,14 +613,17 @@ PANDOX.SHOP = function () {
                 request.fail(function (promise) {
                     var result = promise.responseJSON;
 
-                    console.log(result);
+                    button.show();
+                    $("#loading" + id).hide();
+                    console.log("id=" + id, result);
 
                 });
             })
         };
 
 
-        PANDOX.SYSTEM.forceAuthentication(go());
+        PANDOX.SYSTEM.forceAuthentication(function() {});
+        go();
     };
 
 
