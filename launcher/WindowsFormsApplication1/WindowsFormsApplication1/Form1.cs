@@ -11,6 +11,9 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.Security.Principal;
 using System.IO;
+using System.Net;
+using System.Runtime.Serialization.Json;
+using System.Security.Cryptography;
 
 namespace WindowsFormsApplication1
 {
@@ -19,6 +22,16 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+
+            if (!IsAdministrator())
+            {
+                MessageBox.Show("Você tem certeza que rodou como administrador?");
+            }
+
+            progressBar1.Maximum = 100;
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -124,11 +137,7 @@ namespace WindowsFormsApplication1
                 checkBox1.Checked = true;
                 addResolution(3);
                 removeID();
-
-
-
         }
-
 
         private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -144,5 +153,103 @@ namespace WindowsFormsApplication1
         {
             addResolution(3);
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+
+           
+        }
+
+        private String getHash(String filename)
+        {
+            try
+            {
+                using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    if (stream != null)
+                    {
+                        stream.Seek(0, SeekOrigin.Begin);
+
+                        MD5 md5 = MD5CryptoServiceProvider.Create();
+                        byte[] hash = md5.ComputeHash(stream);
+                        foreach (byte b in hash)
+                            sb.Append(b.ToString("x2"));
+
+                        stream.Seek(0, SeekOrigin.Begin);
+                    }
+
+                    return sb.ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+            
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            WebClient webClient = new WebClient();
+            HttpWebRequest request = WebRequest.Create("http://worldofmu.com.br/patches/files.json") as HttpWebRequest;
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                if (response.StatusCode != HttpStatusCode.OK)
+                    throw new Exception(String.Format(
+                    "Server error (HTTP {0}: {1}).",
+                    response.StatusCode,
+                    response.StatusDescription));
+
+                DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(Version));
+                object objResponse = jsonSerializer.ReadObject(response.GetResponseStream());
+                Version json = objResponse as Version;
+                var backgroundWorker = sender as BackgroundWorker;
+
+
+                int equals = json.files.Length;
+                for (int i = 0; i < json.files.Length; i++)
+                {
+                    String hash = getHash(json.files[i].local.ToString());
+                    if (!hash.Equals(json.files[i].hash.ToString()))
+                    {
+                        // Create a new WebClient instance.
+                        using (WebClient myWebClient = new WebClient())
+                        {
+                            try {
+                                new FileInfo(json.files[i].local.ToString()).Directory.Create();
+                                myWebClient.DownloadFile("http://worldofmu.com.br/patches/" + json.files[i].local.ToString(), json.files[i].local.ToString());
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
+                    }
+                    
+                    backgroundWorker.ReportProgress(json.files.Length);
+                }
+
+                
+            }
+        }
+
+        public void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.PerformStep();
+            progressBar1.Maximum = e.ProgressPercentage;
+
+            label2.Text = "Baixando... " + progressBar1.Value + "/" + progressBar1.Maximum + " arquivos baixados.";
+        }
+        public void backgroundWorker1_Finished(Object sender, RunWorkerCompletedEventArgs e)
+        {
+            label2.Text = "Jogo atualizado. Bom divertimento!";
+            button1.Visible = true;
+        }
+
     }
+
+    
 }

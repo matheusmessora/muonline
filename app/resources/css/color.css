@@ -4,7 +4,7 @@ body {
     background-repeat: no-repeat;
     background-position: top;
     background-color: #000;
-    color: #a99877;
+    color: #c5b28c;
     font-size: 13px;
 }
 @font-face {
@@ -68,6 +68,7 @@ h6 {
 }
 strong {
     color: #AD835A;
+    font-size: 15px;
 }
 p {
     margin: 0 0 20px;
@@ -121,6 +122,19 @@ a:hover,
 a:focus {
     color: #F3E6D0;
     text-decoration: underline;
+}
+.media-left,
+.media-right,
+.media-body {
+    display: table-cell;
+    vertical-align: top;
+}
+.media>.media-right {
+    padding-left: 10px;
+}
+.media-left,
+.media>.media-left {
+    padding-right: 10px;
 }
 /*
 ====================================
@@ -684,9 +698,8 @@ SHOP
 */
 }
 #credits-display {
-     text-align: center;
+    text-align: center;
 }
-
 #credits-display a.thumbnail:hover {
     color: #F3E6D0;
 }
@@ -720,7 +733,6 @@ SHOP
 }
 #credits-display .pagseguro {
     text-align: center;
-
 }
 .signature {
     font-style: italic;
@@ -766,4 +778,49 @@ SHOP
 .share-buttons li {
     display: inline;
     padding: 0px;
+}
+
+.lancamento p {
+    font: 17px/32px Georgia,"Palatino Linotype",Times,serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.countdown {
+    text-align: center;
+    padding-top: 50px;
+}
+.countdown h2 {
+    color: #0e1c49;
+    font: 300 20px/1.4 Roboto, 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.66);
+}
+.countdown h1 {
+    border: 0px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font: 300 20px/1.4 Roboto, 'Open Sans', Helvetica, Arial, sans-serif;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.99);
+    color: #FFF;
+    /*
+    text-shadow: 0 2px 2px rgba(255, 255, 255, 0.99);
+    color: #072531;
+*/
+    font-size: 40px;
+}
+.countdown h3 {
+    font-size: 80px;
+    color: #FFF;
+    font-weight: bold;
+}
+.countdown h4 {
+    font-size: 40px;
+    color: #a99877;
+    font-weight: normal;
+}
+.countdown .wrapper {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, .5);
+    padding: 35px 0px;
+    margin-bottom: 20px;
 }

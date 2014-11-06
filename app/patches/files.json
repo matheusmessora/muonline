@@ -1,0 +1,49 @@
+{
+    "version": "1.0.0",
+    "files": [
+        
+        {
+            "local": "jewels.dll",
+            "hash": "8b308a702daed507dec5c8000274b678"
+        },
+        {
+            "local": "main.exe",
+            "hash": "57227525579dcec4f097ba9aa96f7c06"
+        },
+        {
+            "local": "antihack.dll",
+            "hash": "293459cbea4af1e1209f86d7f60d6a33"
+        },
+        {
+            "local": "GameGuard.des",
+            "hash": "8f009c55705d55924e4f635fd8f29093"
+        },
+        {
+            "local": "Data/gate.bmd",
+            "hash": "a372f0bff1430788aa26cc50bd724ed3"
+        },
+        {
+            "local": "Data/Local/Eng/item_eng.bmd",
+            "hash": "4687f8ce9efaa692804ee779c78573bc"
+        },
+        {
+            "local": "Data/Local/Eng/Text_eng.bmd",
+            "hash": "c94a24c6731a2ba3918068e9652d213c"
+        },
+        {
+            "local": "Data/Local/Filter.bmd",
+            "hash": "b12a9301f9948a5f741cc76ede0b1a72"
+        },
+        {
+            "local": "Data/Local/FilterName.bmd",
+            "hash": "853172bc6959328596f3be442c4faa51"
+        },
+        {
+            "local": "version.txt",
+            "hash": "47cd76e43f74bbc2e1baaf194d07e1fa"
+        }
+        
+        
+        
+    ]
+}
