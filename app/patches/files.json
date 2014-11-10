@@ -39,6 +39,23 @@
             "hash": "853172bc6959328596f3be442c4faa51"
         },
         {
+            "local": "Data/InGameShopScript/512.2011.047/IBSCategory.txt",
+            "hash": "04b1b79d33ece71b568c5d2fb3b013f6"
+        },
+        {
+            "local": "Data/InGameShopScript/512.2011.047/IBSPackage.txt",
+            "hash": "6272505c75e007e60f94a14a87c7331f"
+        },
+        {
+            "local": "Data/InGameShopScript/512.2011.047/IBSProduct.txt",
+            "hash": "a2ed504eca3a35364bb5a1778f8e8000"
+        },
+        {
+            "local": "Data/Local/FilterName.bmd",
+            "hash": "853172bc6959328596f3be442c4faa51"
+        },
+
+        {
             "local": "version.txt",
             "hash": "47cd76e43f74bbc2e1baaf194d07e1fa"
         }

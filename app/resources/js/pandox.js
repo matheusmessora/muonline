@@ -374,7 +374,7 @@ PANDOX.PROFILE = function () {
 
         $("#profile-level").html(profile.level);
         $("#profile-level-info").addClass("lvl_" + profile.level);
-        $("#profile-exp-info").html(profile.exp + "/100");
+        $(".profile-exp-info").html(profile.exp + "/100");
         $("#profile-badges-quantity").html(profile.qtdBadges);
 
         var publicURL = window.location.origin + "/perfil/" + profile.login;
