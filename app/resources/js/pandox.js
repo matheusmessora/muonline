@@ -479,7 +479,7 @@ PANDOX.USER = function () {
         $("#heroes").html("");
         $.each(heroes, function (i, hero) {
             $("#heroes").append(
-                $('<li class="list-group-item">').append('<a href="#">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span></a>'));
+                $('<li class="list-group-item">').append('<a href="#">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span> <span class="text-info">' + hero.level + '</span></a>'));
 
         });
     };
