@@ -273,6 +273,7 @@ PANDOX.PROFILE = function () {
     var finished = function () {
         $("#profile-loading").hide();
         $("#profile-holder").fadeIn();
+        $("#hero-holder").fadeIn();
     };
 
     var init = function () {
@@ -316,6 +317,23 @@ PANDOX.PROFILE = function () {
         });
     };
 
+    var loadProfileHero = function () {
+        var href = window.location.pathname;
+        var heroID = href.substr(href.lastIndexOf('/') + 1);
+
+        var url = "/api/me/hero/" + heroID;
+
+        $.get(url).done(function (hero, textStatus, jqXHR) {
+            if (jqXHR.status == "200") {
+                 renderProfileHeroPage(hero);
+                finished();
+            } else {
+                window.location.replace('/conta');
+            }
+           
+        });
+    };
+
     var renderBadges = function (badges) {
         $("#badges-quantity").html(badges.length);
 
@@ -323,6 +341,66 @@ PANDOX.PROFILE = function () {
             $("#badge-" + badge.id + "-name").html(badge.name);
             $("#badge-" + badge.id + "-description").html(badge.description);
         });
+    };
+
+
+    var renderProfileHeroPage = function (hero) {
+        console.log("hero", hero);
+        $("#hero-title").html(hero.name + " - " + hero.longHeroType);
+        $("#hero-level").html(hero.level);
+        $("#hero-forca").html($.number(hero.forca, 0, ',', '.'));
+        $("#hero-agilidade").html($.number(hero.agilidade, 0, ',', '.'));
+        $("#hero-vitalidade").html($.number(hero.vitalidade, 0, ',', '.'));
+        $("#hero-energia").html($.number(hero.energia, 0, ',', '.'));
+        $("#hero-reset").html(hero.reset);
+        
+        $("#hero-life").html(hero.life);
+        $("#hero-mana").html(hero.mana);
+
+    };
+
+
+    var renderProfilePage = function (profile) {
+        $("#profile-signup-date").html(new Date(profile.signupDate).format("dd/mm/yyyy"));
+
+
+        $("#profile-level").html(profile.level);
+        $("#profile-level-info").addClass("lvl_" + profile.level);
+        $(".profile-exp-info").html(profile.exp + "/100");
+        $("#profile-badges-quantity").html(profile.qtdBadges);
+
+        var publicURL = window.location.origin + "/perfil/" + profile.login;
+        $("#profile-public-url").html(publicURL);
+        $("#profile-public-url").attr('href', publicURL);
+        bindShareButton();
+
+        $("#profile-login").html(profile.login);
+
+        //VIP
+        if (profile.vip) {
+            $("#account-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
+            $("#profile-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
+            $("#profile-vip-day").html(profile.vipDays);
+
+            $("#profile-login").append(" <i class='glyphicon glyphicon-star-empty text-alert'></i>")
+        } else {
+            $("#profile-is-vip").html("Usuário normal.");
+            $("#account-is-vip").html("Usuário normal. [<a href='/shop/vip'>Comprar VIP</a>]");
+            $("#profile-vip-day").html("0");
+
+        }
+
+        if (profile.qtdBadges > 0) {
+            $.each(profile.badges, function (i, badge) {
+                var img = "#badge-" + badge.badgeId + "-img";
+                $(img).attr("src", '/resources/img/badges/' + badge.badgeId + '-on.png?v=22');
+                //                $(img).fadeOut(500, function () {
+                //
+                //                    $(img).show();
+                //                });
+            });
+
+        }
     };
 
     var loadEnquete = function (callback) {
@@ -368,48 +446,7 @@ PANDOX.PROFILE = function () {
 
     };
 
-    var renderProfilePage = function (profile) {
-        $("#profile-signup-date").html(new Date(profile.signupDate).format("dd/mm/yyyy"));
 
-
-        $("#profile-level").html(profile.level);
-        $("#profile-level-info").addClass("lvl_" + profile.level);
-        $(".profile-exp-info").html(profile.exp + "/100");
-        $("#profile-badges-quantity").html(profile.qtdBadges);
-
-        var publicURL = window.location.origin + "/perfil/" + profile.login;
-        $("#profile-public-url").html(publicURL);
-        $("#profile-public-url").attr('href', publicURL);
-        bindShareButton();
-
-        $("#profile-login").html(profile.login);
-
-        //VIP
-        if (profile.vip) {
-            $("#account-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
-            $("#profile-is-vip").html("Conta VIP" + " <i class='glyphicon glyphicon-star-empty text-alert'></i>");
-            $("#profile-vip-day").html(profile.vipDays);
-
-            $("#profile-login").append(" <i class='glyphicon glyphicon-star-empty text-alert'></i>")
-        } else {
-            $("#profile-is-vip").html("Usuário normal.");
-            $("#account-is-vip").html("Usuário normal. [<a href='/shop/vip'>Comprar VIP</a>]");
-            $("#profile-vip-day").html("0");
-
-        }
-
-        if (profile.qtdBadges > 0) {
-            $.each(profile.badges, function (i, badge) {
-                var img = "#badge-" + badge.badgeId + "-img";
-                $(img).attr("src", '/resources/img/badges/' + badge.badgeId + '-on.png?v=22');
-                //                $(img).fadeOut(500, function () {
-                //
-                //                    $(img).show();
-                //                });
-            });
-
-        }
-    };
 
     var bindShareButton = function () {
         $("#facebook-share-url").click(function (event) {
@@ -426,7 +463,8 @@ PANDOX.PROFILE = function () {
 
     return {
         init: init,
-        loadProfile: loadProfile
+        loadProfile: loadProfile,
+        loadProfileHero: loadProfileHero
     };
 
 }();
@@ -479,7 +517,7 @@ PANDOX.USER = function () {
         $("#heroes").html("");
         $.each(heroes, function (i, hero) {
             $("#heroes").append(
-                $('<li class="list-group-item">').append('<a href="#">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span> <span class="text-info">' + hero.level + '</span></a>'));
+                $('<li class="list-group-item">').append('<a href="/conta/heroi/' + hero.name + '">' + hero.heroType + ' ' + hero.name + '<span class="text-danger"> ' + hero.reset + ' </span> <span class="text-info">' + hero.level + '</span></a>'));
 
         });
     };
@@ -622,7 +660,7 @@ PANDOX.SHOP = function () {
         };
 
 
-        PANDOX.SYSTEM.forceAuthentication(function() {});
+        PANDOX.SYSTEM.forceAuthentication(function () {});
         go();
     };
 
@@ -870,6 +908,8 @@ PANDOX.RANKING = function () {
                         .append(hero.reset)
                     ).append($('<td  class="table-center">')
                         .append(hero.level)
+                    ).append($('<td  class="table-center">')
+                        .append(hero.onlineHours)
                     ));
             } else {
                 $("#ranking-tbody").append($('<tr>')
@@ -886,6 +926,8 @@ PANDOX.RANKING = function () {
                         .append(hero.reset)
                     ).append($('<td  class="table-center">')
                         .append(hero.level)
+                    ).append($('<td  class="table-center">')
+                        .append(hero.onlineHours)
                     ));
 
             }

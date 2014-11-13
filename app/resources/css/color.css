@@ -779,9 +779,8 @@ SHOP
     display: inline;
     padding: 0px;
 }
-
 .lancamento p {
-    font: 17px/32px Georgia,"Palatino Linotype",Times,serif;
+    font: 17px/32px Georgia, "Palatino Linotype", Times, serif;
     font-weight: 500;
     letter-spacing: 0.5px;
 }
@@ -823,4 +822,36 @@ SHOP
     background: rgba(0, 0, 0, .5);
     padding: 35px 0px;
     margin-bottom: 20px;
+}
+/*
+====================================
+HERO
+====================================  */
+
+#hero-stats p {
+    font-size: 16px;
+}
+.hero-resource {
+    text-align: center;
+    display: table-cell;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    background: url(/resources/img/hero/resources.png);
+    font-size: 11px;
+    text-shadow: 1px 1px 5px #000, 1px 1px 1px #000;
+    text-align: center;
+    color: #f3e6d0;
+}
+.hero-resource-desc {
+    padding-left: 10px;
+    background: none;
+    font-size: 13px;
+    color: #c5b28c;
+}
+.hero-resource-mana {
+    text-shadow: 1px 1px 5px #000, 1px 1px 1px #000;
+    text-align: center;
+    color: #f3e6d0;
+    background-position: 0px -50px;
 }

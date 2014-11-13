@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Heroi - World Of MU</title>
+    <!--# include file="/includes/head.html" -->
+    <script>
+        PANDOX.PROFILE.init();
+        PANDOX.PROFILE.loadProfileHero();
+    </script>
+</head>
+
+<body>
+    <!--# include file="/includes/menu.html" -->
+
+    <!-- JUMB CRUMS -->
+    <div class="container">
+        <div class="row  skybar skybar-demon">
+            <div class="col-xs-9">
+                <h2 class="account-login"></h2>
+            </div>
+            <!--# include file="/includes/credits.html" -->
+        </div>
+    </div>
+
+    <!-- SITE CONTENT -->
+    <div class="container content">
+
+        <!-- MAINBAR -->
+        <div class="col-lg-9" id="profile-loading">
+            <h1>Processando... <img class="loading" src="http://us.battle.net/d3/static/images/loaders/brighter.gif" /> </h1>
+        </div>
+        <div class="col-lg-9"  id="hero-holder" style="display:none;">
+
+            <div class="row separator" id="hero-stats" >
+
+                <div class="col-xs-12">
+                    <h1 id="hero-title"></h1>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-6">
+                        <h5>Level</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p id="hero-level"></p>
+                    </div>
+
+
+                    <div class="col-xs-6">
+                        <h5>Força</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p id="hero-forca"></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Agilidade</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p id="hero-agilidade"></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Vitalidade</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p id="hero-vitalidade"></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Energia</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p id="hero-energia"></p>
+                    </div>
+                    
+                    <div class="col-xs-6">
+                        <span class="hero-resource" id="hero-life">300K</span> <span class="hero-resource hero-resource-desc">Vida</span>
+                    </div>
+                    <div class="col-xs-6">
+                       <span class="hero-resource hero-resource-mana" id="hero-mana">300K</span> <span class="hero-resource hero-resource-desc">Mana</span>
+                    </div>
+                    
+
+
+
+
+                    <p id="hero-vip-day"></p>
+                    <!--                        [<a href="/email/verificar">Verificar</a>] [<a href="/email/alterar">Alterar email</a>]-->
+                </div>
+                <div class="col-xs-12 col-sm-6">
+
+                    <div class="col-xs-6">
+                        <h5>Resets</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p><span id="hero-reset"></span> / 15</p>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <h5>Master Resets</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p id="hero-signup-date">0 / 10</p>
+                    </div>
+                    
+
+
+<!--
+<div class="col-xs-6">
+                        <h5>Guild</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p id="hero-guild">0 / 10</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Perfil público</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <p>
+                            <a id="hero-public-url" href="#" target="_blank">/heroi/TheEND</a>
+                        </p>
+                    </div>
+-->
+
+
+                </div>
+
+            </div>
+<!--
+            <div class="row separator">
+
+                <div class="col-xs-12">
+                    <h1>Ações disponíveis</h1>
+                    
+                    <p><span class="text-danger">ATENÇÃO</span>: As funções a seguir devem ser executadas sempre com a conta deslogada do servidor.</p>
+                    
+                    <h3>Reset de Herói</h3>
+                    <p>Para resetar, seu personagem deve estar no Level 400, possuir 1KK de Zen e você deve estar <strong>deslogado</strong>.</p>
+                    
+                    
+                    <h3>Tomar uma cerveja</h3>
+                    <p>Você pode ser movido diretamente para o bar de lorencia para beber umas com os amigos. É recomendável utilizar essa função toda vez que seu personagem estiver preso em algum mapa.</p>
+                    
+                    <h3>Limpar PK</h3>
+                    <p>Matou muitos players e agora esta PK? Não se preocupe, você pode limpar o seu status aqui.</p>
+                    
+
+
+
+
+                </div>
+            </div>
+-->
+
+        </div>
+
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-3  col-md-3 sidebar">
+            <!--# include file="/conta/includes/navbar.html" -->
+
+        </div>
+
+
+    </div>
+
+    <!--# include file="/includes/footer.html" -->
+
+
+</body>
+
+</html>
+
